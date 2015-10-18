@@ -45,7 +45,10 @@ class YahooToken < OAuth::ConsumerToken
   def query(verifier, url)
     access_token = request_token.get_access_token(:oauth_verifier => verifier, oauth_session_handle: oauth_session_handle)
     @oauth_session_handle = access_token.params[:oauth_session_handle]
-    response = access_token.get(url)
+    keys = url.scan(/\/(\d+)/).flatten
+    team_key = "nfl.l.#{keys[0]}.t.#{keys[1]}"
+    api_url = "https://query.yahooapis.com/v1/yql?q=select%20*%20from%20fantasysports.teams.roster%20where%20team_key%3D'#{team_key}'%20&format=json"
+    response = access_token.get(api_url)
     JSON.parse(response.body)
   end
 

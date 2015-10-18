@@ -5,7 +5,15 @@
   <%= form_tag(teams_path, method: :post) do %>
     <%= hidden_field_tag :token, @token %>
     <%= hidden_field_tag :secret, @secret %>
-    <%= text_field_tag :verifier %>
+    <div>
+      <label>Verifier Code</label>
+      <%= text_field_tag :verifier %>
+    </div>
+    <br>
+    <div>
+      <label>Roster URL</label>
+      <%= text_field_tag :roster_url %>
+    </div>
     <%= submit_tag 'Submit' %>
   <% end %>
 </div>

@@ -7,11 +7,8 @@ class TeamsController < ApplicationController
   end
 
   def create
-    url = "https://query.yahooapis.com/v1/yql?q=select%20*%20from%20fantasysports.teams.roster%20where%20team_key%3D'nfl.l.791261.t.2'%20&format=json"
     token = YahooToken.fetch(params[:token], params[:secret])
-    response = token.query(params[:verifier], url)
-
-    binding.pry
+    response = token.query(params[:verifier], params[:roster_url])
   end
 
   def show
