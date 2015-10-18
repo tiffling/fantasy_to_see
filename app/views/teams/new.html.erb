@@ -1,15 +1,6 @@
-<h1>Hello</h1>
-<%= link_to 'Click here', @url, target: 'blank' %>
-
+<h1>Import roster</h1>
 <div class="authorizer-form">
   <%= form_tag(teams_path, method: :post) do %>
-    <%= hidden_field_tag :token, @token %>
-    <%= hidden_field_tag :secret, @secret %>
-    <div>
-      <label>Verifier Code</label>
-      <%= text_field_tag :verifier %>
-    </div>
-    <br>
     <div>
       <label>Roster URL</label>
       <%= text_field_tag :roster_url %>

@@ -4,17 +4,18 @@ class YahooToken < OAuth::ConsumerToken
 
   attr_reader :oauth_session_handle
 
-  def initialize(request_token)
+  def initialize(request_token, oauth_session_handle)
     @request_token = request_token
+    @oauth_session_handle = oauth_session_handle
   end
 
-  def self.fetch(token, secret)
+  def self.fetch(token, secret, oauth_session_handle)
     request_token = OAuth::RequestToken.new(consumer, token, secret)
-    new(request_token)
+    new(request_token, oauth_session_handle)
   end
 
   def self.generate
-    new(consumer.get_request_token)
+    new(consumer.get_request_token, nil)
   end
 
   def self.consumer
@@ -42,8 +43,17 @@ class YahooToken < OAuth::ConsumerToken
     request_token.secret
   end
 
+  def valid?(verifier)
+    begin
+      request_token.get_access_token(oauth_verifier: verifier, oauth_session_handle: oauth_session_handle)
+      true
+    rescue OAuth::Problem
+      false
+    end
+  end
+
   def query(verifier, url)
-    access_token = request_token.get_access_token(:oauth_verifier => verifier, oauth_session_handle: oauth_session_handle)
+    access_token = request_token.get_access_token(oauth_verifier: verifier, oauth_session_handle: oauth_session_handle)
     @oauth_session_handle = access_token.params[:oauth_session_handle]
     keys = url.scan(/\/(\d+)/).flatten
     team_key = "nfl.l.#{keys[0]}.t.#{keys[1]}"
