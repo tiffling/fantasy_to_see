@@ -11,3 +11,12 @@
  *= require_self
  *= require_tree .
  */
+
+.authorizer-form {
+  padding-top: 20px;
+}
+
+.container {
+  width: 1000px;
+  margin: auto;
+}
