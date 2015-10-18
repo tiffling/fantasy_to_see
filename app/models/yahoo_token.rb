@@ -2,16 +2,13 @@ class YahooToken < OAuth::ConsumerToken
   CLIENT_KEY = 'dj0yJmk9TUNIYnJlQ0ZnWlFNJmQ9WVdrOVJUQTRRV3h2TjJrbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD1jMg--'
   SECRET_KEY = '787cf2a7e99ec070a4e250d5cf92ab35dad12d75'
 
-  attr_reader :oauth_session_handle
-
-  def initialize(request_token, oauth_session_handle)
+  def initialize(request_token)
     @request_token = request_token
-    @oauth_session_handle = oauth_session_handle
   end
 
-  def self.fetch(token, secret, oauth_session_handle)
+  def self.fetch(token, secret)
     request_token = OAuth::RequestToken.new(consumer, token, secret)
-    new(request_token, oauth_session_handle)
+    new(request_token)
   end
 
   def self.generate
@@ -45,7 +42,7 @@ class YahooToken < OAuth::ConsumerToken
 
   def valid?(verifier)
     begin
-      request_token.get_access_token(oauth_verifier: verifier, oauth_session_handle: oauth_session_handle)
+      @access_token ||= request_token.get_access_token(oauth_verifier: verifier)
       true
     rescue OAuth::Problem
       false
@@ -53,8 +50,7 @@ class YahooToken < OAuth::ConsumerToken
   end
 
   def query(verifier, url)
-    access_token = request_token.get_access_token(oauth_verifier: verifier, oauth_session_handle: oauth_session_handle)
-    @oauth_session_handle = access_token.params[:oauth_session_handle]
+    @access_token ||= request_token.get_access_token(oauth_verifier: verifier)
     keys = url.scan(/\/(\d+)/).flatten
     team_key = "nfl.l.#{keys[0]}.t.#{keys[1]}"
     api_url = "https://query.yahooapis.com/v1/yql?q=select%20*%20from%20fantasysports.teams.roster%20where%20team_key%3D'#{team_key}'%20&format=json"
@@ -64,5 +60,5 @@ class YahooToken < OAuth::ConsumerToken
 
   private
 
-  attr_reader :request_token
+  attr_reader :request_token, :access_token
 end

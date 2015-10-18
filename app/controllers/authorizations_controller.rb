@@ -15,7 +15,7 @@ class AuthorizationsController < ApplicationController
   end
 
   def create
-    token = YahooToken.fetch(cookies[:token], cookies[:secret], session[:oauth_session_handle])
+    token = YahooToken.fetch(cookies[:token], cookies[:secret])
 
     if token.valid?(params[:verifier])
       cookies[:verifer] = {

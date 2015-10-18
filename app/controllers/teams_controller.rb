@@ -5,17 +5,14 @@ class TeamsController < ApplicationController
   end
 
   def create
-    token = YahooToken.fetch(cookies[:token], cookies[:secret], session[:oauth_session_handle])
+    token = YahooToken.fetch(cookies[:token], cookies[:secret])
     response = token.query(cookies[:verifer], params[:roster_url])
-    session[:oauth_session_handle] = token.oauth_session_handle
-    team_data = response['query']['results']['team']
-    team_key = team_data['team_key']
-    store_team_data(team_key, team_data)
-    redirect_to teams_path(team_key)
+    team = Team.create_or_update_from_api(response['query']['results']['team'])
+    redirect_to team_path(team)
   end
 
   def show
-    @data = session[:team_data][params[:id]]
+    @team = Team.find(params[:id])
   end
 
   private

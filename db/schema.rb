@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 20151018211100) do
   enable_extension "hstore"
 
   create_table "teams", force: true do |t|
-    t.string   "team_key",                null: false
-    t.string   "name",                    null: false
-    t.string   "url",                     null: false
-    t.hstore   "data",       default: {}
+    t.string   "team_key",   null: false
+    t.string   "name",       null: false
+    t.string   "url",        null: false
+    t.json     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
