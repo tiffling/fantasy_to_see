@@ -16,7 +16,39 @@
   padding-top: 20px;
 }
 
-.container {
+body {
   width: 1000px;
   margin: auto;
+  margin-bottom: 100px;
+  margin-top: 50px;
+  font-family: Helvetica, sans-serif;
+}
+
+.matchup {
+  padding: 10px 0;
+
+  header {
+    border-bottom: 1px black solid;
+    margin-bottom: 10px;
+  }
+}
+
+.benched {
+  color: gray;
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.player {
+  padding-bottom: 10px;
+
+  * {
+    vertical-align: middle;
+  }
+
+  img {
+    padding-right: 10px;
+  }
 }

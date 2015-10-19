@@ -23,12 +23,25 @@ class PlayerPresenter
     hsh['display_position']
   end
 
+  def image
+    hsh['headshot']['url']
+  end
+
   def starting?
     hsh['selected_position']['position'] != 'BN'
   end
 
+  def benched?
+    !starting?
+  end
+
   def uniform_number
-    hsh['uniform_number']
+    return '' if position == 'DEF'
+    "##{hsh['uniform_number']}"
+  end
+
+  def matchup_player_blurb
+    "#{uniform_number} #{full_name} #{position}-#{team}".strip
   end
 
   private

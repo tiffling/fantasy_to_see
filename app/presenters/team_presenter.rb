@@ -15,7 +15,7 @@ class TeamPresenter
     @players ||= begin
       team.data['roster']['players']['player'].map do |player_hsh|
         PlayerPresenter.new(player_hsh)
-      end
+      end.sort_by { |player| player.starting? ? 0 : 1 }
     end
   end
 
