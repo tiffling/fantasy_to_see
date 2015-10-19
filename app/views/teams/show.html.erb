@@ -1,1 +1,9 @@
-<%= @data %>
+<h1><%= @presenter.name %></h1>
+<h4>Week <%= @presenter.week %></h4>
+<ul>
+  <% @presenter.players.each do |player| %>
+    <li>
+      <%= player.shortened_name %> <%= player.position %>-<%= player.team %>
+    </li>
+  <% end %>
+</ul>

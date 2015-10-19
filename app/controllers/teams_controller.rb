@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_filter :must_be_authorized
+  before_filter :must_be_authorized, only: [:new, :create]
 
   def new
   end
@@ -12,7 +12,8 @@ class TeamsController < ApplicationController
   end
 
   def show
-    @team = Team.find(params[:id])
+    team = Team.find(params[:id])
+    @presenter = TeamPresenter.new(team)
   end
 
   private

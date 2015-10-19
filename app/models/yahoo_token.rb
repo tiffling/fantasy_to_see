@@ -12,7 +12,7 @@ class YahooToken < OAuth::ConsumerToken
   end
 
   def self.generate
-    new(consumer.get_request_token, nil)
+    new(consumer.get_request_token)
   end
 
   def self.consumer
