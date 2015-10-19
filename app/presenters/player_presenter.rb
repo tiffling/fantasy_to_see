@@ -23,6 +23,10 @@ class PlayerPresenter
     hsh['display_position']
   end
 
+  def starting?
+    hsh['selected_position']['position'] != 'BN'
+  end
+
   private
 
   attr_reader :hsh

@@ -1,9 +1,17 @@
-<h1><%= @presenter.name %></h1>
-<h4>Week <%= @presenter.week %></h4>
+<h1><%= @team_presenter.name %></h1>
+<h4>Week <%= @team_presenter.week %></h4>
 <ul>
-  <% @presenter.players.each do |player| %>
+  <% @team_presenter.players.each do |player| %>
     <li>
       <%= player.shortened_name %> <%= player.position %>-<%= player.team %>
     </li>
   <% end %>
 </ul>
+
+<hr>
+
+<% @matchup_presenters.each do |matchup| %>
+  <div>
+    <%= matchup.header %> @ <%= matchup.kickoff %>
+  </div>
+<% end %>

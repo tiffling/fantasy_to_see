@@ -13,7 +13,9 @@ class TeamsController < ApplicationController
 
   def show
     team = Team.find(params[:id])
-    @presenter = TeamPresenter.new(team)
+    @team_presenter = TeamPresenter.new(team)
+    filter = MatchupFilter.new(@team_presenter.week, @team_presenter.teams)
+    @matchup_presenters = filter.matchup_presenters
   end
 
   private
