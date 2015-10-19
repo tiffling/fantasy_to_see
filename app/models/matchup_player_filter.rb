@@ -5,7 +5,7 @@ class MatchupPlayerFilter
 
   def matchup_players(team_names)
     players.select do |player|
-      team_names.include?(MatchupFilter::NORMALIZED_TEAM_HSH[player.team] || player.team.upcase)
+      player.starting? && team_names.include?(MatchupFilter::NORMALIZED_TEAM_HSH[player.team] || player.team.upcase)
     end
   end
 
