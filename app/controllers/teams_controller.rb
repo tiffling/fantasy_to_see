@@ -1,13 +1,11 @@
 class TeamsController < ApplicationController
-  before_filter :must_be_authorized, only: [:new, :create]
+  before_filter :must_be_authorized, only: [:new, :create, :update]
 
   def new
   end
 
   def create
-    token = YahooToken.fetch(cookies[:token], cookies[:secret])
-    response = token.query(cookies[:verifer], params[:roster_url])
-    team = Team.create_or_update_from_api(response['query']['results']['team'])
+    team = store_team(params[:roster_url])
     redirect_to team_path(team)
   end
 
@@ -19,7 +17,19 @@ class TeamsController < ApplicationController
     @matchup_player_filter = MatchupPlayerFilter.new(@team_presenter.players)
   end
 
+  def update
+    team = Team.find(params[:id])
+    store_team(team.url)
+    redirect_to team_path(team)
+  end
+
   private
+
+  def store_team(url)
+    token = YahooToken.fetch(cookies[:token], cookies[:secret])
+    response = token.query(cookies[:verifer], url)
+    Team.create_or_update_from_api(response['query']['results']['team'])
+  end
 
   def must_be_authorized
     unless cookies[:token] && cookies[:secret] && cookies[:verifer]

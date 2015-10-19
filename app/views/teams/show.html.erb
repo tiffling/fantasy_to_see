@@ -1,3 +1,4 @@
+<%= link_to 'Import another team', new_team_path %>
 <h1><%= @team_presenter.name %></h1>
 <ul>
   <% @team_presenter.players.each do |player| %>
@@ -6,6 +7,7 @@
     </li>
   <% end %>
 </ul>
+<%= link_to 'Refresh team data', team_path(@team_presenter.team), method: :put %>
 
 <h2>Games To Watch (Week <%= @team_presenter.week %>)</h2>
 <% @matchup_presenters.each do |matchup| %>

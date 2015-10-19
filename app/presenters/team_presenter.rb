@@ -1,4 +1,6 @@
 class TeamPresenter
+  attr_reader :team
+
   def initialize(team)
     @team = team
   end
@@ -22,8 +24,4 @@ class TeamPresenter
   def teams
     players.select(&:starting?).map(&:team)
   end
-
-  private
-
-  attr_reader :team
 end
