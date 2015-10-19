@@ -1,17 +1,22 @@
 <h1><%= @team_presenter.name %></h1>
 <h4>Week <%= @team_presenter.week %></h4>
-<ul>
+<ol>
   <% @team_presenter.players.each do |player| %>
     <li>
       <%= player.shortened_name %> <%= player.position %>-<%= player.team %>
     </li>
   <% end %>
-</ul>
+</ol>
 
 <hr>
 
 <% @matchup_presenters.each do |matchup| %>
-  <div>
+  <section>
     <%= matchup.header %> @ <%= matchup.kickoff %>
-  </div>
+    <% @matchup_player_filter.matchup_players(matchup.team_names).each do |player| %>
+      <div>
+        #<%= player.uniform_number %> <%= player.full_name %> <%= player.position %>-<%= player.team %>
+      </div>
+    <% end %>
+  </section>
 <% end %>

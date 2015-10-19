@@ -27,6 +27,10 @@ class PlayerPresenter
     hsh['selected_position']['position'] != 'BN'
   end
 
+  def uniform_number
+    hsh['uniform_number']
+  end
+
   private
 
   attr_reader :hsh

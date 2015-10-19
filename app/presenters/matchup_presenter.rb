@@ -14,6 +14,12 @@ class MatchupPresenter
       strftime('%m/%d %a %l:%M %P')
   end
 
+  def team_names
+    teams.map do |team|
+      team['id']
+    end
+  end
+
   private
 
   attr_reader :hsh

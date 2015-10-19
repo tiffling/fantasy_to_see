@@ -16,6 +16,7 @@ class TeamsController < ApplicationController
     @team_presenter = TeamPresenter.new(team)
     filter = MatchupFilter.new(@team_presenter.week, @team_presenter.teams)
     @matchup_presenters = filter.matchup_presenters
+    @matchup_player_filter = MatchupPlayerFilter.new(@team_presenter.players)
   end
 
   private

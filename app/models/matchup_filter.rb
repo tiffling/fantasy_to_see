@@ -1,7 +1,7 @@
 class MatchupFilter
   NORMALIZED_TEAM_HSH = {
     'GB' => 'GBP',
-    'Jax' => 'Jac',
+    'Jax' => 'JAC',
     'KC' => 'KCC',
     'NE' => 'NEP',
     'NO' => 'NOS',
