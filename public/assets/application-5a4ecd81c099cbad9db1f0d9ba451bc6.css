@@ -1,0 +1,59 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+/* line 16, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.authorizer-form {
+  padding-top: 20px;
+}
+
+/* line 20, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+body {
+  width: 1000px;
+  margin: auto;
+  margin-bottom: 100px;
+  margin-top: 50px;
+  font-family: Helvetica, sans-serif;
+}
+
+/* line 28, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.matchup {
+  padding: 10px 0;
+}
+/* line 31, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.matchup header {
+  border-bottom: 1px black solid;
+  margin-bottom: 10px;
+}
+
+/* line 37, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.benched {
+  color: gray;
+}
+
+/* line 41, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.circle {
+  border-radius: 50%;
+}
+
+/* line 45, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.player {
+  padding-bottom: 10px;
+}
+/* line 48, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.player * {
+  vertical-align: middle;
+}
+/* line 52, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.player img {
+  padding-right: 10px;
+}
