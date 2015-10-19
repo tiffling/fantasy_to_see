@@ -1,3 +1,7 @@
 == README
 
 https://sleepy-scrubland-4221.herokuapp.com
+
+This is an app where you can import your team via a yahoo fantasy team url (ex: https://football.fantasysports.yahoo.com/f1/791261/2) and see what games to watch @ what time and which of your starting players are in those games.
+
+Uses the Yahoo Fantasy Sports API for team information and the MyFantasyLeague API for schedule information.
