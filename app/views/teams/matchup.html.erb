@@ -1,0 +1,32 @@
+<h2>Week <%= @team_presenter.week %> Matchup</h2>
+<h4><%= link_to "#{@team_presenter.name} (You)", team_path(@team_presenter.team) %></h4>
+<ul>
+  <% @team_presenter.starting_players.each do |player| %>
+    <li class="<%= player.benched? ? 'benched' : '' %>">
+      <%= player.shortened_name %> <%= player.position %>-<%= player.team %>
+    </li>
+  <% end %>
+</ul>
+<h4><%= link_to @opposing_team_presenter.name, team_path(@opposing_team_presenter.team) %></h4>
+<ul>
+  <% @opposing_team_presenter.starting_players.each do |player| %>
+    <li class="<%= player.benched? ? 'benched' : '' %>">
+      <%= player.shortened_name %> <%= player.position %>-<%= player.team %>
+    </li>
+  <% end %>
+</ul>
+
+<h2>Games To Watch (Week <%= @team_presenter.week %>)</h2>
+<% @matchup_presenters.each do |matchup| %>
+  <section class="matchup">
+    <header>
+      <%= matchup.header %> @ <%= matchup.kickoff %> EST
+    </header>
+    <% @matchup_player_filter.matchup_players(matchup.team_names).each do |player| %>
+      <div class="player <%= player.owner_team == @team_presenter.team ? 'ally' : 'opponent' %>">
+        <%= image_tag player.image, class: 'circle' %>
+        <%= player.matchup_player_blurb %>
+      </div>
+    <% end %>
+  </section>
+<% end %>

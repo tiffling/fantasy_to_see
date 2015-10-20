@@ -30,7 +30,7 @@ class TeamPresenter
   def base_players
     @base_players ||= begin
       team.data['roster']['players']['player'].map do |player_hsh|
-        PlayerPresenter.new(player_hsh)
+        PlayerPresenter.new(player_hsh, team)
       end
     end
   end

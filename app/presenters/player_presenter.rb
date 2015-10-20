@@ -1,6 +1,9 @@
 class PlayerPresenter
-  def initialize(hsh)
+  attr_reader :owner_team
+
+  def initialize(hsh, owner_team)
     @hsh = hsh
+    @owner_team = owner_team
   end
 
   def full_name

@@ -1,5 +1,6 @@
 <%= link_to 'Import another team', new_team_path %>
 <h1><%= @team_presenter.name %></h1>
+<%= link_to 'Matchup view', matchup_team_path(@team_presenter.team) %>
 <ul>
   <% @team_presenter.players.each do |player| %>
     <li class="<%= player.benched? ? 'benched' : '' %>">
@@ -8,24 +9,6 @@
   <% end %>
 </ul>
 <%= link_to 'Refresh team data', team_path(@team_presenter.team), method: :put %>
-
-<h2>Week <%= @team_presenter.week %> Matchup</h2>
-<h4><%= @team_presenter.name %></h4>
-<ul>
-  <% @team_presenter.starting_players.each do |player| %>
-    <li class="<%= player.benched? ? 'benched' : '' %>">
-      <%= player.shortened_name %> <%= player.position %>-<%= player.team %>
-    </li>
-  <% end %>
-</ul>
-<h4><%= @opposing_team_presenter.name %></h4>
-<ul>
-  <% @opposing_team_presenter.starting_players.each do |player| %>
-    <li class="<%= player.benched? ? 'benched' : '' %>">
-      <%= player.shortened_name %> <%= player.position %>-<%= player.team %>
-    </li>
-  <% end %>
-</ul>
 
 <h2>Games To Watch (Week <%= @team_presenter.week %>)</h2>
 <% @matchup_presenters.each do |matchup| %>
