@@ -1,7 +1,10 @@
 <%= link_to 'Import another team', new_team_path %>
 <br>
 <%= link_to 'Matchup view', matchup_team_path(@team_presenter.team) %>
-<h1><%= @team_presenter.name %></h1>
+<div class="team-name-header">
+  <%= image_tag @team_presenter.image, class: 'circle large-icon' %>
+  <h1><%= @team_presenter.name %></h1>
+</div>
 <header class="team-header">My Team <%= link_to 'refresh team data', team_path(@team_presenter.team), method: :put %></header>
 <ul class="team">
   <% @team_presenter.players.each do |player| %>
@@ -20,7 +23,7 @@
     <ul class="team">
       <% @matchup_player_filter.matchup_players(matchup.team_names).each do |player| %>
         <li class="player">
-          <%= image_tag player.image, class: 'circle' %>
+          <%= image_tag player.image, class: 'circle small-icon' %>
           <%= player.matchup_player_blurb %>
         </li>
       <% end %>

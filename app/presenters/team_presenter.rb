@@ -25,6 +25,10 @@ class TeamPresenter
     players.select(&:starting?).map(&:team)
   end
 
+  def image
+    team.data['team_logos']['team_logo']['url']
+  end
+
   private
 
   def base_players

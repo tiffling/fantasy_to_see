@@ -25,7 +25,7 @@
     <ul class="team">
       <% @matchup_player_filter.matchup_players(matchup.team_names).each do |player| %>
         <li class="player <%= player.owner_team == @team_presenter.team ? 'ally' : 'opponent' %>">
-          <%= image_tag player.image, class: 'circle' %>
+          <%= image_tag player.image, class: 'circle small-icon' %>
           <%= player.matchup_player_blurb %>
         </li>
       <% end %>

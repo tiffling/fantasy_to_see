@@ -57,9 +57,6 @@ body {
 
   img {
     margin-right: 10px;
-    height: 45px;
-    width: 45px;
-    background-color: gray;
   }
 }
 
@@ -105,4 +102,25 @@ ul {
 .primary-button {
   color: white;
   background-color: #24a318;
+}
+
+.large-icon {
+  height: 100px;
+  width: 100px;
+  background-color: gray;
+}
+
+.small-icon {
+  height: 45px;
+  width: 45px;
+  background-color: gray;
+}
+
+.team-name-header {
+  text-align: center;
+  margin-bottom: 25px;
+
+  h1 {
+    margin: 0;
+  }
 }
