@@ -20,28 +20,28 @@ h1,
 h2,
 h3,
 h4 {
-  color: #eedc93;
+  color: #dfdfde;
 }
 
 a {
-  color: #7bc774;
+  color: #eb8c00;
   text-decoration: none;
 }
 
 html {
-  background-color: #004444;
+  background-color: #005b96;
 }
 
 body {
   width: 1000px;
   margin: auto;
-  margin-bottom: 100px;
-  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-top: 25px;
   font-family: Helvetica, sans-serif;
 }
 
 .benched {
-  background-color: #dfdfdf;
+  background-color: #d2d4dc;
 }
 
 .circle {
@@ -68,6 +68,7 @@ ul {
   background-color: #24a318;
   color: white;
   padding: 10px;
+  border-radius: 5px 0;
 
   a {
     color: #eedc93;
@@ -82,7 +83,7 @@ ul {
 
   li {
     padding: 10px;
-    border-bottom: 1px #c7c596 solid;
+    border-bottom: 1px #afafaf solid;
 
     &:last-child {
       border: 0;
@@ -90,10 +91,16 @@ ul {
   }
 }
 
+form {
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+}
+
 .button {
   border: 0;
   padding: 10px;
-  border-radius: 10%;
+  border-radius: 5px;
   cursor: pointer;
   font-size: 14px;
 
@@ -101,7 +108,7 @@ ul {
 
 .primary-button {
   color: white;
-  background-color: #24a318;
+  background-color: #fe5757;
 }
 
 .large-icon {
