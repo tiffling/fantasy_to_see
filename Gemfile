@@ -25,8 +25,6 @@ end
 
 gem 'oauth'
 gem 'pg'
-gem 'font-awesome-sass'
-
 
 group :development do
   gem 'pry'
