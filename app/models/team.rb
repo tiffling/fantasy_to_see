@@ -1,8 +1,8 @@
 class Team < ActiveRecord::Base
   belongs_to :league
 
-  def self.create_or_update_from_api(token, url)
-    response = token.query_team(url)
+  def self.create_or_update_from_api(token, team_key)
+    response = token.query_team(team_key)
     data = response['query']['results']['team']
 
     team = Team.where(team_key: data['team_key']).first || Team.new(team_key: data['team_key'])

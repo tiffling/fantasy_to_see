@@ -14,14 +14,24 @@ class TeamPresenter
   end
 
   def players
-    @players ||= begin
-      team.data['roster']['players']['player'].map do |player_hsh|
-        PlayerPresenter.new(player_hsh)
-      end.sort_by { |player| player.starting? ? 0 : 1 }
-    end
+    base_players.sort_by { |player| player.starting? ? 0 : 1 }
+  end
+
+  def starting_players
+    base_players.select { |player| player.starting? }
   end
 
   def teams
     players.select(&:starting?).map(&:team)
+  end
+
+  private
+
+  def base_players
+    @base_players ||= begin
+      team.data['roster']['players']['player'].map do |player_hsh|
+        PlayerPresenter.new(player_hsh)
+      end
+    end
   end
 end

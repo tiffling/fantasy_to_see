@@ -15,6 +15,12 @@ class TeamsController < ApplicationController
     filter = MatchupFilter.new(@team_presenter.week, @team_presenter.teams)
     @matchup_presenters = filter.matchup_presenters
     @matchup_player_filter = MatchupPlayerFilter.new(@team_presenter.players)
+
+    matchup_finder = MatchupFinder.new(team)
+    opposing_team = begin
+      matchup_finder.opposing_team || Team.create_or_update_from_api(token, matchup_finder.opposing_team_key)
+    end
+    @opposing_team_presenter = TeamPresenter.new(opposing_team)
   end
 
   def update
@@ -26,7 +32,8 @@ class TeamsController < ApplicationController
   private
 
   def store_team(url)
-    Team.create_or_update_from_api(token, url)
+    team_key = YahooToken.team_key_from_url(url)
+    Team.create_or_update_from_api(token, team_key)
   end
 
   def must_be_authorized
