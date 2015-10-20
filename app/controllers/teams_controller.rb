@@ -26,8 +26,7 @@ class TeamsController < ApplicationController
   private
 
   def store_team(url)
-    response = token.query(url)
-    Team.create_or_update_from_api(response['query']['results']['team'])
+    Team.create_or_update_from_api(token, url)
   end
 
   def must_be_authorized
@@ -38,12 +37,5 @@ class TeamsController < ApplicationController
 
   def token
     @token ||= YahooToken.fetch(cookies[:token], cookies[:secret], cookies[:verifer])
-  end
-
-  def store_team_data(team_key, team_data)
-    unless session[:team_data]
-      session[:team_data] = {}
-    end
-    session[:team_data][team_key] = team_data
   end
 end

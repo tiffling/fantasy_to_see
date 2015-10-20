@@ -1,12 +1,39 @@
 class Team < ActiveRecord::Base
   belongs_to :league
 
-  def self.create_or_update_from_api(data)
+  def self.create_or_update_from_api(token, url)
+    response = token.query_team(url)
+    data = response['query']['results']['team']
+
     team = Team.where(team_key: data['team_key']).first || Team.new(team_key: data['team_key'])
     team.name = data['name']
     team.url = data['url']
     team.data = data
     team.save
+
+    if team.league
+      team.league.update_from_api(token)
+    else
+      team.create_league(token)
+    end
+
     team
+  end
+
+  def create_league(token)
+    league_key = team_key.scan(/(.*).t/).flatten[0]
+    response = token.query_league(league_key)
+    data = response['query']['results']['league']
+
+    league = League.first_or_initialize(league_key: league_key)
+    if league.new_record?
+      league.league_key = data['league_key']
+      league.name = data['name']
+    end
+    league.data = data
+    league.save
+
+    self.league = league
+    save
   end
 end
