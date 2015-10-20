@@ -11,11 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151018211100) do
+ActiveRecord::Schema.define(version: 20151020002610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
+
+  create_table "leagues", force: true do |t|
+    t.string   "league_key"
+    t.string   "name"
+    t.json     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "teams", force: true do |t|
     t.string   "team_key",   null: false
@@ -24,6 +32,7 @@ ActiveRecord::Schema.define(version: 20151018211100) do
     t.json     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "league_id"
   end
 
 end
