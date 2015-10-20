@@ -1,26 +1,29 @@
 <%= link_to 'Import another team', new_team_path %>
-<h1><%= @team_presenter.name %></h1>
+<br>
 <%= link_to 'Matchup view', matchup_team_path(@team_presenter.team) %>
-<ul>
+<h1><%= @team_presenter.name %></h1>
+<header class="team-header">My Team <%= link_to 'refresh team data', team_path(@team_presenter.team), method: :put %></header>
+<ul class="team">
   <% @team_presenter.players.each do |player| %>
     <li class="<%= player.benched? ? 'benched' : '' %>">
       <%= player.shortened_name %> <%= player.position %>-<%= player.team %>
     </li>
   <% end %>
 </ul>
-<%= link_to 'Refresh team data', team_path(@team_presenter.team), method: :put %>
 
 <h2>Games To Watch (Week <%= @team_presenter.week %>)</h2>
 <% @matchup_presenters.each do |matchup| %>
   <section class="matchup">
-    <header>
+    <header class="team-header">
       <%= matchup.header %> @ <%= matchup.kickoff %> EST
     </header>
-    <% @matchup_player_filter.matchup_players(matchup.team_names).each do |player| %>
-      <div class="player">
-        <%= image_tag player.image, class: 'circle' %>
-        <%= player.matchup_player_blurb %>
-      </div>
-    <% end %>
+    <ul class="team">
+      <% @matchup_player_filter.matchup_players(matchup.team_names).each do |player| %>
+        <li class="player">
+          <%= image_tag player.image, class: 'circle' %>
+          <%= player.matchup_player_blurb %>
+        </li>
+      <% end %>
+    </ul>
   </section>
 <% end %>

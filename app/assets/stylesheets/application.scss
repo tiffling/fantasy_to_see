@@ -16,21 +16,28 @@
   padding-top: 20px;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  color: #eedc93;
+}
+
+a {
+  color: #7bc774;
+  text-decoration: none;
+}
+
+html {
+  background-color: #004444;
+}
+
 body {
   width: 1000px;
   margin: auto;
   margin-bottom: 100px;
   margin-top: 50px;
   font-family: Helvetica, sans-serif;
-}
-
-.matchup {
-  padding: 10px 0;
-
-  header {
-    border-bottom: 1px black solid;
-    margin-bottom: 10px;
-  }
 }
 
 .benched {
@@ -50,5 +57,38 @@ body {
 
   img {
     margin-right: 10px;
+    height: 45px;
+    width: 45px;
+    background-color: gray;
+  }
+}
+
+ul {
+  list-style-type: none;
+}
+
+.team-header {
+  background-color: #24a318;
+  color: white;
+  padding: 10px;
+
+  a {
+    color: #eedc93;
+  }
+}
+
+.team {
+  background-color: white;
+  color: #200a15;
+  padding: 0;
+  margin-top: 0;
+
+  li {
+    padding: 10px;
+    border-bottom: 1px #c7c596 solid;
+
+    &:last-child {
+      border: 0;
+    }
   }
 }
