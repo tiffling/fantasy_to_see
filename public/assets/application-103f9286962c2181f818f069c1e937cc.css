@@ -1,0 +1,140 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+/* line 16, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.authorizer-form {
+  padding-top: 20px;
+}
+
+/* line 23, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+h1,
+h2,
+h3,
+h4 {
+  color: #eedc93;
+}
+
+/* line 27, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+a {
+  color: #7bc774;
+  text-decoration: none;
+}
+
+/* line 32, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+html {
+  background-color: #004444;
+}
+
+/* line 36, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+body {
+  width: 1000px;
+  margin: auto;
+  margin-bottom: 100px;
+  margin-top: 50px;
+  font-family: Helvetica, sans-serif;
+}
+
+/* line 44, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.benched {
+  background-color: #dfdfdf;
+}
+
+/* line 48, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.circle {
+  border-radius: 50%;
+}
+
+/* line 52, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.player {
+  padding-bottom: 10px;
+}
+/* line 55, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.player * {
+  vertical-align: middle;
+}
+/* line 59, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.player img {
+  margin-right: 10px;
+}
+
+/* line 64, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+ul {
+  list-style-type: none;
+}
+
+/* line 68, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.team-header {
+  background-color: #24a318;
+  color: white;
+  padding: 10px;
+}
+/* line 73, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.team-header a {
+  color: #eedc93;
+}
+
+/* line 78, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.team {
+  background-color: white;
+  color: #200a15;
+  padding: 0;
+  margin-top: 0;
+}
+/* line 84, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.team li {
+  padding: 10px;
+  border-bottom: 1px #c7c596 solid;
+}
+/* line 88, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.team li:last-child {
+  border: 0;
+}
+
+/* line 94, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.button {
+  border: 0;
+  padding: 10px;
+  border-radius: 10%;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* line 103, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.primary-button {
+  color: white;
+  background-color: #24a318;
+}
+
+/* line 108, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.large-icon {
+  height: 100px;
+  width: 100px;
+  background-color: gray;
+}
+
+/* line 114, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.small-icon {
+  height: 45px;
+  width: 45px;
+  background-color: gray;
+}
+
+/* line 120, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.team-name-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+/* line 124, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.team-name-header h1 {
+  margin: 0;
+}
