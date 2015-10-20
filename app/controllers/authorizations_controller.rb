@@ -2,7 +2,7 @@ class AuthorizationsController < ApplicationController
   before_filter :only_unauthorized, only: [:new, :create]
 
   def new
-    token = YahooToken.generate
+    @token = YahooToken.generate
     cookies[:token] = {
       value: token.token,
       expires: 1.hour.from_now
@@ -15,9 +15,8 @@ class AuthorizationsController < ApplicationController
   end
 
   def create
-    token = YahooToken.fetch(cookies[:token], cookies[:secret])
-
-    if token.valid?(params[:verifier])
+    @token = YahooToken.fetch(cookies[:token], cookies[:secret], params[:verifier])
+    if token.valid?
       cookies[:verifer] = {
         value: params[:verifier],
         expires: 1.hour.from_now
@@ -34,8 +33,12 @@ class AuthorizationsController < ApplicationController
   private
 
   def only_unauthorized
-    if cookies[:token] && cookies[:secret] && cookies[:verifer]
+    if token.valid?
       redirect_to new_team_path
     end
+  end
+
+  def token
+    @token ||= YahooToken.fetch(cookies[:token], cookies[:secret], cookies[:verifier])
   end
 end

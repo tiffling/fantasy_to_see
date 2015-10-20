@@ -2,13 +2,14 @@ class YahooToken < OAuth::ConsumerToken
   CLIENT_KEY = 'dj0yJmk9TUNIYnJlQ0ZnWlFNJmQ9WVdrOVJUQTRRV3h2TjJrbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD1jMg--'
   SECRET_KEY = '787cf2a7e99ec070a4e250d5cf92ab35dad12d75'
 
-  def initialize(request_token)
+  def initialize(request_token, verifier = '')
     @request_token = request_token
+    @verifier = verifier
   end
 
-  def self.fetch(token, secret)
+  def self.fetch(token, secret, verifier)
     request_token = OAuth::RequestToken.new(consumer, token, secret)
-    new(request_token)
+    new(request_token, verifier)
   end
 
   def self.generate
@@ -40,7 +41,7 @@ class YahooToken < OAuth::ConsumerToken
     request_token.secret
   end
 
-  def valid?(verifier)
+  def valid?
     begin
       @access_token ||= request_token.get_access_token(oauth_verifier: verifier)
       true
@@ -49,7 +50,7 @@ class YahooToken < OAuth::ConsumerToken
     end
   end
 
-  def query(verifier, url)
+  def query(url)
     @access_token ||= request_token.get_access_token(oauth_verifier: verifier)
     keys = url.scan(/\/(\d+)/).flatten
     team_key = "nfl.l.#{keys[0]}.t.#{keys[1]}"
@@ -60,5 +61,5 @@ class YahooToken < OAuth::ConsumerToken
 
   private
 
-  attr_reader :request_token, :access_token
+  attr_reader :request_token, :access_token, :verifier
 end
