@@ -92,3 +92,17 @@ ul {
     }
   }
 }
+
+.button {
+  border: 0;
+  padding: 10px;
+  border-radius: 10%;
+  cursor: pointer;
+  font-size: 14px;
+
+}
+
+.primary-button {
+  color: white;
+  background-color: #24a318;
+}
