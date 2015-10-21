@@ -12,8 +12,21 @@
  *= require_tree .
  */
 
-.authorizer-form {
+.input-form {
   padding-top: 20px;
+}
+
+input[type="text"] {
+  display: block;
+  width: 250px;
+  height: 25px;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
 }
 
 h1,
@@ -33,6 +46,7 @@ html {
 }
 
 body {
+  color: #555555;
   width: 1000px;
   margin: auto;
   margin-bottom: 50px;
@@ -68,7 +82,7 @@ ul {
   background-color: #24a318;
   color: white;
   padding: 10px;
-  border-radius: 5px 0;
+  border-radius: 5px 5px 0 0;
 
   a {
     color: #eedc93;
@@ -77,9 +91,9 @@ ul {
 
 .team {
   background-color: white;
-  color: #200a15;
   padding: 0;
   margin-top: 0;
+  border-radius: 0 0 5px 5px;
 
   li {
     padding: 10px;
@@ -87,6 +101,7 @@ ul {
 
     &:last-child {
       border: 0;
+      border-radius: 0 0 5px 5px;
     }
   }
 }
@@ -103,12 +118,14 @@ form {
   border-radius: 5px;
   cursor: pointer;
   font-size: 14px;
-
 }
 
 .primary-button {
   color: white;
   background-color: #fe5757;
+  &:hover {
+    background-color: #cb2424;
+  }
 }
 
 .large-icon {

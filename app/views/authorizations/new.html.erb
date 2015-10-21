@@ -1,13 +1,12 @@
 <h1>Authorize</h1>
-<%= link_to 'Click here', @url, target: 'blank' %>
+<%= link_to 'Click here to authorize', @url, target: 'blank' %>
 
-<div class="authorizer-form">
+<div class="input-form">
   <%= form_tag(authorizations_path, method: :post) do %>
     <div>
       <label>Verifier Code</label>
       <%= text_field_tag :verifier %>
     </div>
-    <br>
     <%= submit_tag 'Authorize', class: 'button primary-button' %>
   <% end %>
 </div>
