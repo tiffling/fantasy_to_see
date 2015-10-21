@@ -1,22 +1,26 @@
 <h2>Week <%= @team_presenter.week %> Matchup</h2>
-<header class="team-header"><i class="fa fa-flag"></i> <%= @team_presenter.name %> <%= link_to 'View team', team_path(@team_presenter.team), class: 'header-link' %></header>
-<ul class="team">
-  <% @team_presenter.starting_players.each do |player| %>
-    <li class="<%= player.benched? ? 'benched' : '' %>">
-      <%= player.shortened_name %> <%= player.position %>-<%= player.team %>
-    </li>
-  <% end %>
-</ul>
-<header class="team-header"><%= @opposing_team_presenter.name %> <%= link_to 'View team', team_path(@opposing_team_presenter.team), class: 'header-link' %></header>
-<ul class="team">
-  <% @opposing_team_presenter.starting_players.each do |player| %>
-    <li class="<%= player.benched? ? 'benched' : '' %>">
-      <%= player.shortened_name %> <%= player.position %>-<%= player.team %>
-    </li>
-  <% end %>
-</ul>
+<section class="matchup-team">
+  <header class="team-header"><i class="fa fa-flag"></i> <%= @team_presenter.name %> <%= link_to 'View team', team_path(@team_presenter.team), class: 'header-link' %></header>
+  <ul class="team">
+    <% @team_presenter.starting_players.each do |player| %>
+      <li class="ally">
+        <%= player.shortened_name %> <%= player.position %>-<%= player.team %>
+      </li>
+    <% end %>
+  </ul>
+</section>
+<section class="matchup-team">
+  <header class="team-header"><%= @opposing_team_presenter.name %> <%= link_to 'View team', team_path(@opposing_team_presenter.team), class: 'header-link' %></header>
+  <ul class="team">
+    <% @opposing_team_presenter.starting_players.each do |player| %>
+      <li class="opponent">
+        <%= player.shortened_name %> <%= player.position %>-<%= player.team %>
+      </li>
+    <% end %>
+  </ul>
+</section>
 
-<h2>Games To Watch (Week <%= @team_presenter.week %>)</h2>
+<h2>Week <%= @team_presenter.week %> Games</h2>
 <% @matchup_presenters.each do |matchup| %>
   <section class="matchup">
     <header class="team-header">

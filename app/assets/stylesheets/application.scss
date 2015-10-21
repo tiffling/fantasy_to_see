@@ -99,6 +99,14 @@ ul {
     padding: 10px;
     border-bottom: 1px #afafaf solid;
 
+    &.ally {
+      background-color: #cce5ff;
+    }
+
+    &.opponent {
+      background-color: #fec2c2;
+    }
+
     &:last-child {
       border: 0;
       border-radius: 0 0 5px 5px;
@@ -173,4 +181,8 @@ form {
 
 .header-link {
   padding-left: 5px;
+}
+
+.matchup-team {
+  display: inline-block;
 }
