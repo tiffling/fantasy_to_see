@@ -1,0 +1,211 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+/* line 16, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.input-form {
+  padding-top: 20px;
+}
+
+/* line 20, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+input[type="text"] {
+  display: block;
+  width: 250px;
+  height: 25px;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+
+/* line 28, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* line 33, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+h1,
+h2,
+h3,
+h4 {
+  color: #dfdfde;
+}
+
+/* line 40, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+a {
+  color: #eb8c00;
+  text-decoration: none;
+}
+
+/* line 45, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+html {
+  background-color: #005b96;
+}
+
+/* line 49, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+body {
+  color: #555555;
+  width: 1000px;
+  margin: auto;
+  margin-bottom: 50px;
+  margin-top: 25px;
+  font-family: Helvetica, sans-serif;
+}
+
+/* line 58, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.benched {
+  background-color: #d2d4dc;
+}
+
+/* line 62, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.circle {
+  border-radius: 50%;
+}
+
+/* line 66, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.player {
+  padding-bottom: 10px;
+}
+/* line 69, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.player * {
+  vertical-align: middle;
+}
+/* line 73, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.player img {
+  margin-right: 10px;
+}
+
+/* line 78, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+ul {
+  list-style-type: none;
+}
+
+/* line 82, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.team-header {
+  background-color: #24a318;
+  color: white;
+  padding: 10px;
+  border-radius: 5px 5px 0 0;
+}
+/* line 88, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.team-header a {
+  color: #eedc93;
+}
+
+/* line 93, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.team {
+  background-color: white;
+  padding: 0;
+  margin-top: 0;
+  border-radius: 0 0 5px 5px;
+}
+/* line 99, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.team li {
+  padding: 10px;
+  border-bottom: 1px #afafaf solid;
+}
+/* line 103, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.team li.ally {
+  background-color: #cce5ff;
+}
+/* line 107, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.team li.opponent {
+  background-color: #fec2c2;
+}
+/* line 111, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.team li:last-child {
+  border: 0;
+  border-radius: 0 0 5px 5px;
+}
+
+/* line 118, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+form {
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+/* line 124, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.button {
+  color: white;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  display: inline-block;
+}
+
+/* line 133, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.primary-button {
+  background-color: #fe5757;
+  padding: 10px;
+}
+/* line 136, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.primary-button:hover {
+  background-color: #cb2424;
+}
+
+/* line 141, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.secondary-button {
+  background-color: #00aedb;
+  padding: 10px;
+}
+/* line 144, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.secondary-button:hover {
+  background-color: #008baf;
+}
+
+/* line 149, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.large-icon {
+  height: 75px;
+  width: 75px;
+  background-color: gray;
+}
+
+/* line 155, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.small-icon {
+  height: 45px;
+  width: 45px;
+  background-color: gray;
+}
+
+/* line 161, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.team-name-header {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+/* line 165, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.team-name-header div, .team-name-header img {
+  vertical-align: middle;
+  display: inline-block;
+}
+/* line 170, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.team-name-header div {
+  padding-left: 5px;
+}
+/* line 174, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.team-name-header .button {
+  margin-top: 5px;
+}
+/* line 178, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.team-name-header h1 {
+  margin: 0;
+}
+
+/* line 183, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.header-link {
+  padding-left: 5px;
+}
+
+/* line 187, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.matchup-team {
+  display: inline-block;
+}
