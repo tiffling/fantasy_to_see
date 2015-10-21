@@ -113,24 +113,33 @@ form {
 }
 
 .button {
+  color: white;
   border: 0;
-  padding: 10px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 14px;
+  display: inline-block;
 }
 
 .primary-button {
-  color: white;
   background-color: #fe5757;
+  padding: 10px;
   &:hover {
     background-color: #cb2424;
   }
 }
 
+.secondary-button {
+  background-color: #00aedb;
+  padding: 10px;
+  &:hover {
+    background-color: #008baf;
+  }
+}
+
 .large-icon {
-  height: 100px;
-  width: 100px;
+  height: 75px;
+  width: 75px;
   background-color: gray;
 }
 
@@ -141,10 +150,27 @@ form {
 }
 
 .team-name-header {
-  text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+
+  div, img {
+    vertical-align: middle;
+    display: inline-block;
+  }
+
+  div {
+    padding-left: 5px;
+  }
+
+  .button {
+    margin-top: 5px;
+  }
 
   h1 {
     margin: 0;
   }
+}
+
+.header-link {
+  padding-left: 5px;
 }

@@ -1,11 +1,14 @@
-<%= link_to 'Import another team', new_team_path %>
-<br>
-<%= link_to 'Matchup view', matchup_team_path(@team_presenter.team) %>
+<%= link_to new_team_path do %>
+  <i class="fa fa-cloud-download"></i> Import another team
+<% end %>
 <div class="team-name-header">
   <%= image_tag @team_presenter.image, class: 'circle large-icon' %>
-  <h1><%= @team_presenter.name %></h1>
+  <div>
+    <h1><%= @team_presenter.name %></h1>
+    <%= link_to 'Matchup View', matchup_team_path(@team_presenter.team), class: 'button secondary-button' %>
+  </div>
 </div>
-<header class="team-header"><i class="fa fa-flag"></i> My Team <%= link_to 'refresh team data', team_path(@team_presenter.team), method: :put %></header>
+<header class="team-header"><i class="fa fa-flag"></i> My Team <%= link_to team_path(@team_presenter.team), method: :put, class: 'header-link' do %>Refresh <i class="fa fa-refresh"></i><% end %></header>
 <ul class="team">
   <% @team_presenter.players.each do |player| %>
     <li class="<%= player.benched? ? 'benched' : '' %>">
