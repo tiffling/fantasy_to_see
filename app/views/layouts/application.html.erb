@@ -8,9 +8,19 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 <body>
+  <header>
+    <div class="nav-links content">
+      <%= link_to root_path, class: 'home-link' do %>
+        <i class="fa fa-home"></i> Home
+      <% end %>
+      <%= yield(:header) %>
+    </div>
+  </header>
   <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>"><%= value %></div>
   <% end %>
-  <%= yield %>
+  <div class="content">
+    <%= yield %>
+  </div>
 </body>
 </html>

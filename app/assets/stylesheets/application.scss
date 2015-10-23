@@ -52,17 +52,37 @@ a {
   text-decoration: none;
 }
 
-html {
-  background-color: #005b96;
+header {
+  background-color: #004878;
+}
+
+.nav-links {
+  padding: 10px 0;
+
+  a {
+    padding-right: 10px;
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+}
+
+.home-link {
+  color: #fded8f;
 }
 
 body {
   color: #555555;
+  font-family: Helvetica, sans-serif;
+  margin: 0;
+  margin-bottom: 50px;
+  background-color: #005b96;
+}
+
+.content {
   max-width: 1000px;
   margin: auto;
-  margin-bottom: 50px;
-  margin-top: 25px;
-  font-family: Helvetica, sans-serif;
 
   @include media($medium) {
     padding-left: 10px;
@@ -99,10 +119,6 @@ ul {
   color: white;
   padding: 10px;
   border-radius: 5px 5px 0 0;
-
-  a {
-    color: #eedc93;
-  }
 }
 
 .team {
@@ -206,6 +222,7 @@ form {
 
 .header-link {
   padding-left: 5px;
+  color: #eedc93;
 }
 
 .matchup-team {
