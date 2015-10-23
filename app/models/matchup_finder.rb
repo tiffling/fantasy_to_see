@@ -14,6 +14,8 @@ class MatchupFinder
         return Team.where(team_key: opposing_team_key).first
       end
     end
+
+    nil
   end
 
   private
