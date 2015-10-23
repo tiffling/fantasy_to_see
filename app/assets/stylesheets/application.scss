@@ -12,6 +12,9 @@
  *= require_tree .
  */
 
+@import "bourbon";
+@import "neat";
+
 .input-form {
   padding-top: 20px;
 }

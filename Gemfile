@@ -24,6 +24,7 @@ end
 
 gem 'oauth'
 gem 'pg'
+gem 'neat'
 
 group :development do
   gem 'pry'
