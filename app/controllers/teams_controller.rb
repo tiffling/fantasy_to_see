@@ -6,7 +6,12 @@ class TeamsController < ApplicationController
 
   def create
     team = store_team(params[:roster_url])
-    redirect_to team_path(team)
+    if team
+      redirect_to team_path(team)
+    else
+      flash[:notice] = 'Please authorize your account'
+      redirect_to new_authorization_path
+    end
   end
 
   def show
@@ -23,14 +28,20 @@ class TeamsController < ApplicationController
 
     matchup_finder = MatchupFinder.new(team)
 
-    if !matchup_finder.opposing_team && !token.valid?
+    begin
+      if !matchup_finder.opposing_team && !token.valid?
+        raise 'Need to revalidate token'
+      end
+
+      opposing_team = begin
+        matchup_finder.opposing_team || Team.create_or_update_from_api(token, matchup_finder.opposing_team_key)
+      end
+    rescue
+      flash[:notice] = 'Please authorize your account'
       redirect_to new_authorization_path
       return
     end
 
-    opposing_team = begin
-      matchup_finder.opposing_team || Team.create_or_update_from_api(token, matchup_finder.opposing_team_key)
-    end
     @opposing_team_presenter = TeamPresenter.new(opposing_team)
 
     filter = MatchupFilter.new(@team_presenter.week, @team_presenter.teams + @opposing_team_presenter.teams)
@@ -41,11 +52,14 @@ class TeamsController < ApplicationController
   def update_matchup
     team = Team.find(params[:id])
     matchup_finder = MatchupFinder.new(team)
-    store_team(team.url)
-    store_team(matchup_finder.opposing_team.url)
 
-    flash[:success] = 'Updated'
-    redirect_to matchup_team_path(team)
+    if store_team(team.url) && store_team(matchup_finder.opposing_team.url)
+      flash[:success] = 'Updated'
+      redirect_to matchup_team_path(team)
+    else
+      flash[:notice] = 'Please authorize your account'
+      redirect_to new_authorization_path
+    end
   end
 
   def update
@@ -57,8 +71,12 @@ class TeamsController < ApplicationController
   private
 
   def store_team(url)
-    team_key = YahooToken.team_key_from_url(url)
-    Team.create_or_update_from_api(token, team_key)
+    begin
+      team_key = YahooToken.team_key_from_url(url)
+      Team.create_or_update_from_api(token, team_key)
+    rescue
+      false
+    end
   end
 
   def must_be_authorized
