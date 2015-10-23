@@ -11,10 +11,10 @@ class Team < ActiveRecord::Base
     team.data = data
     team.save
 
-    if team.league
-      team.league.update_from_api(token)
-    else
+    if !team.league
       team.create_league(token)
+    elsif team.league.updated_at < 1.minute.ago
+      team.league.update_from_api(token)
     end
 
     team

@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_filter :must_be_authorized, only: [:new, :create, :update]
+  before_filter :must_be_authorized, only: [:new, :create, :update, :update_matchup]
 
   def new
   end
@@ -22,6 +22,12 @@ class TeamsController < ApplicationController
     @team_presenter = TeamPresenter.new(team)
 
     matchup_finder = MatchupFinder.new(team)
+
+    if !matchup_finder.opposing_team && !token.valid?
+      redirect_to new_authorization_path
+      return
+    end
+
     opposing_team = begin
       matchup_finder.opposing_team || Team.create_or_update_from_api(token, matchup_finder.opposing_team_key)
     end
@@ -30,6 +36,16 @@ class TeamsController < ApplicationController
     filter = MatchupFilter.new(@team_presenter.week, @team_presenter.teams + @opposing_team_presenter.teams)
     @matchup_presenters = filter.matchup_presenters
     @matchup_player_filter = MatchupPlayerFilter.new(@team_presenter.players + @opposing_team_presenter.players)
+  end
+
+  def update_matchup
+    team = Team.find(params[:id])
+    matchup_finder = MatchupFinder.new(team)
+    store_team(team.url)
+    store_team(matchup_finder.opposing_team.url)
+
+    flash[:success] = 'Updated'
+    redirect_to matchup_team_path(team)
   end
 
   def update
