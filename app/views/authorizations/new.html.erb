@@ -1,11 +1,15 @@
 <h1>Authorize</h1>
-<%= link_to 'Click here to authorize', @url, target: 'blank' %>
 
 <div class="input-form">
   <%= form_tag(authorizations_path, method: :post) do %>
+    <p>
+      Yahoo requires that you authorize access to your Yahoo Fantasy team. Please click on the link below and follow the instructions to retrieve your code. Copy and paste the code onto the form below and submit.
+    </p>
+    <p>
+      <%= link_to 'Click here for your sharing approval code', @url, target: 'blank' %>
+    </p>
     <div>
-      <label>Verifier Code</label>
-      <%= text_field_tag :verifier %>
+      <%= text_field_tag :verifier, nil, placeholder: 'Sharing approval code' %>
     </div>
     <%= submit_tag 'Authorize', class: 'button primary-button' %>
   <% end %>

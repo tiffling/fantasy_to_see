@@ -1,9 +1,11 @@
 <h1>Import roster</h1>
 <div class="input-form">
   <%= form_tag(teams_path, method: :post) do %>
+    <p>
+      Copy and paste the URL to your team page on Yahoo (eg. https://football.fantasysports.yahoo.com/f1/123456/1)
+    </p>
     <div>
-      <label>Roster URL</label>
-      <%= text_field_tag :roster_url %>
+      <%= text_field_tag :roster_url, nil, placeholder: 'Roster URL' %>
     </div>
     <%= submit_tag 'Submit', class: 'button primary-button' %>
   <% end %>
