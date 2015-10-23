@@ -227,4 +227,11 @@ form {
 
 .matchup-team {
   @include span-columns(6);
+
+  .header-link {
+    @include media($tablet) {
+      display: block;
+      padding-left: 0;
+    }
+  }
 }
