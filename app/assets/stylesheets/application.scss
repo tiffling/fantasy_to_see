@@ -13,7 +13,12 @@
  */
 
 @import "bourbon";
+@import "grid_settings";
 @import "neat";
+
+.container {
+  @include outer-container;
+}
 
 .input-form {
   padding-top: 20px;
@@ -50,11 +55,16 @@ html {
 
 body {
   color: #555555;
-  width: 1000px;
+  max-width: 1000px;
   margin: auto;
   margin-bottom: 50px;
   margin-top: 25px;
   font-family: Helvetica, sans-serif;
+
+  @include media($tablet) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
 
 .benched {
@@ -187,5 +197,5 @@ form {
 }
 
 .matchup-team {
-  display: inline-block;
+  @include span-columns(6);
 }
