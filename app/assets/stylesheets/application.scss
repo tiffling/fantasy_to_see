@@ -13,8 +13,11 @@
  */
 
 @import "bourbon";
-@import "grid_settings";
 @import "neat";
+
+$medium: new-breakpoint(max-width 1020px 8);
+$tablet: new-breakpoint(max-width 768px 8);
+$mobile: new-breakpoint(max-width 480px 4);
 
 .container {
   @include outer-container;
@@ -61,7 +64,7 @@ body {
   margin-top: 25px;
   font-family: Helvetica, sans-serif;
 
-  @include media($tablet) {
+  @include media($medium) {
     padding-left: 10px;
     padding-right: 10px;
   }
@@ -173,22 +176,31 @@ form {
 .team-name-header {
   margin-bottom: 20px;
   margin-top: 20px;
-
-  div, img {
-    vertical-align: middle;
-    display: inline-block;
-  }
-
-  div {
-    padding-left: 5px;
-  }
-
-  .button {
-    margin-top: 5px;
-  }
+  text-align: center;
 
   h1 {
     margin: 0;
+  }
+
+  .button {
+    margin-top: 10px;
+  }
+
+  @include media($tablet) {
+    text-align: left;
+
+    div, img {
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+    div {
+      padding-left: 5px;
+    }
+
+    .button {
+      margin-top: 5px;
+    }
   }
 }
 
