@@ -8,8 +8,12 @@
   <%= image_tag @team_presenter.image, class: 'circle large-icon' %>
   <div>
     <h1><%= @team_presenter.name %></h1>
-    <%= link_to my_teams_path(id: @team_presenter.team), method: :post, class: 'button primary-button' do %>
-      <i class="fa fa-plus-circle"></i> Save
+    <% if cookies[:my_team_ids].to_s.split(', ').include?(@team_presenter.team.id.to_s) %>
+      <button class="button disabled-button" disabled><i class="fa fa-check-circle"></i> Saved</button>
+    <% else %>
+      <%= link_to my_teams_path(id: @team_presenter.team), method: :post, class: 'button primary-button' do %>
+        <i class="fa fa-plus-circle"></i> Save
+      <% end %>
     <% end %>
     <%= link_to 'Matchup View', matchup_team_path(@team_presenter.team), class: 'button secondary-button' %>
   </div>

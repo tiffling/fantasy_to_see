@@ -215,6 +215,12 @@ form {
   margin-left: 10px;
 }
 
+.disabled-button {
+  background-color: #a8a9b0;
+  padding: 10px;
+  cursor: not-allowed;
+}
+
 .large-icon {
   height: 75px;
   width: 75px;
@@ -240,12 +246,22 @@ form {
     margin-top: 10px;
   }
 
-  @include media($tablet) {
+  @include media($mobile) {
     text-align: left;
+
+    h1 {
+      font-size: 25px;
+    }
 
     div, img {
       vertical-align: middle;
       display: inline-block;
+    }
+
+
+    img {
+      height: 65px;
+      width: 65px;
     }
 
     div {
