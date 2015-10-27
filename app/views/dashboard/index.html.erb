@@ -1,17 +1,19 @@
 <h1>FantasyToSee</h1>
 
-<section>
-  <div class="team-header">
-    My Teams
-  </div>
-  <ul class="team">
-    <% @my_teams.each do |team| %>
-      <li>
-        <%= link_to team.name, team_path(team) %>
-        <%= link_to my_team_path(team.id), method: :delete, class: 'warning' do %>
-          <i class="fa fa-times-circle"></i> Remove
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
-</section>
+<% if @my_teams.any? %>
+  <section>
+    <div class="team-header">
+      My Teams
+    </div>
+    <ul class="team">
+      <% @my_teams.each do |team| %>
+        <li>
+          <%= link_to team.name, team_path(team) %>
+          <%= link_to my_team_path(team.id), method: :delete, class: 'warning' do %>
+            <i class="fa fa-times-circle"></i> Remove
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+<% end %>
