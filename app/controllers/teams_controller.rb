@@ -7,6 +7,7 @@ class TeamsController < ApplicationController
   def create
     team = store_team(params[:roster_url])
     if team
+      cookies[:my_team_ids] = (cookies[:my_team_ids].to_s.split(', ') + [team.id]).join(', ')
       redirect_to team_path(team)
     else
       flash[:notice] = 'Please authorize your account'

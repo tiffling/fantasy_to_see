@@ -1,0 +1,12 @@
+<h1>FantasyToSee</h1>
+
+<section>
+  <div class="team-header">
+    My Teams
+  </div>
+  <ul class="team">
+    <% @my_teams.each do |team| %>
+      <li><%= link_to team.name, team_path(team) %></li>
+    <% end %>
+  </ul>
+</section>

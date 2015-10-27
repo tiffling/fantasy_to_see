@@ -4,5 +4,8 @@ YahooFantasyApp::Application.routes.draw do
     put :update_matchup, on: :member
   end
   resources :authorizations, only: [:new, :create]
+
+  resources :dashboard, only: [:index]
+
   root to: 'authorizations#new'
 end
