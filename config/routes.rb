@@ -7,5 +7,7 @@ YahooFantasyApp::Application.routes.draw do
 
   resources :dashboard, only: [:index]
 
+  resources :my_teams, only: [:create, :destroy]
+
   root to: 'authorizations#new'
 end

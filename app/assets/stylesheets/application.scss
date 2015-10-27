@@ -19,6 +19,10 @@ $medium: new-breakpoint(max-width 1020px 8);
 $tablet: new-breakpoint(max-width 768px 8);
 $mobile: new-breakpoint(max-width 480px 4);
 
+.warning {
+  color: #d83636;
+}
+
 .container {
   @include outer-container;
 }
