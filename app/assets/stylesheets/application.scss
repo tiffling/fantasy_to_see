@@ -57,6 +57,10 @@ input[type="text"] {
   border-radius: 5px;
   border: 1px #eb8c00 solid;
   padding: 10px;
+
+  @include media($mobile) {
+    width: 100%;
+  }
 }
 
 label {
@@ -175,7 +179,7 @@ ul {
   }
 }
 
-form {
+form, .box {
   padding: 20px;
   background-color: white;
   border-radius: 5px;
@@ -219,6 +223,13 @@ form {
   background-color: #a8a9b0;
   padding: 10px;
   cursor: not-allowed;
+}
+
+.mobile-full-button {
+  @include media($mobile) {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 .large-icon {

@@ -16,4 +16,17 @@
       <% end %>
     </ul>
   </section>
+  <section>
+    <%= link_to new_team_path, class: 'button secondary-button mobile-full-button' do %>
+      <i class="fa fa-cloud-download"></i> Import another team
+    <% end %>
+  </section>
+<% else %>
+  <section class="box">
+    <p>Welcome to FantasyToSee! Import your fantasy football team(s) to figure out what games to watch for the week and which players to root for in the games. The MatchUp View pulls your opponent's team for the week and compiles which games to watch accordingly.</p>
+
+    <%= link_to new_team_path, class: 'button primary-button mobile-full-button' do %>
+      <i class="fa fa-cloud-download"></i> Import team
+    <% end %>
+  </section>
 <% end %>
