@@ -9,5 +9,7 @@ YahooFantasyApp::Application.routes.draw do
 
   resources :my_teams, only: [:create, :destroy]
 
+  resources :time_zones, only: [:create]
+
   root to: 'dashboard#index'
 end

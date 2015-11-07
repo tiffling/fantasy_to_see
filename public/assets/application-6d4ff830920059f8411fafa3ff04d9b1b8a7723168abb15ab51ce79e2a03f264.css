@@ -1,0 +1,397 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+/* line 4, /Users/tiffanyhuang/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/neat-1.7.2/app/assets/stylesheets/grid/_box-sizing.scss */
+html {
+  box-sizing: border-box;
+}
+
+/* line 9, /Users/tiffanyhuang/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/neat-1.7.2/app/assets/stylesheets/grid/_box-sizing.scss */
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+/* line 23, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.margin-bottom {
+  margin-bottom: 10px;
+}
+
+/* line 27, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.margin-bottom-large {
+  margin-bottom: 20px;
+}
+
+/* line 31, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.warning {
+  color: #d83636;
+}
+
+/* line 35, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.container {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 20, /Users/tiffanyhuang/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/bourbon-4.2.6/app/assets/stylesheets/addons/_clearfix.scss */
+.container::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+/* line 39, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.alert-success {
+  background-color: #d2e7ba;
+  color: #24a318;
+}
+
+/* line 44, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.alert-notice {
+  background-color: #eeeec7;
+  color: #72725f;
+}
+
+/* line 49, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.alert-error {
+  background-color: #f6c8cd;
+  color: #e35d6a;
+}
+
+/* line 54, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.alert {
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+/* line 60, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+input[type="text"] {
+  display: block;
+  width: 250px;
+  height: 35px;
+  margin-bottom: 15px;
+  font-size: 15px;
+  border-radius: 5px;
+  border: 1px #eb8c00 solid;
+  padding: 10px;
+}
+@media screen and (max-width: 480px) {
+  /* line 60, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+  input[type="text"] {
+    width: 100%;
+  }
+}
+
+/* line 75, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+select {
+  font-size: 15px;
+  border: 0;
+  height: 35px;
+  background-color: #d2d4dc;
+}
+@media screen and (max-width: 480px) {
+  /* line 75, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+  select {
+    width: 100%;
+  }
+}
+
+/* line 86, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* line 91, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.inline-block {
+  display: inline-block;
+}
+
+/* line 95, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+h1,
+h2,
+h3,
+h4 {
+  color: #dfdfde;
+}
+
+/* line 102, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+a {
+  color: #eb8c00;
+  text-decoration: none;
+}
+
+/* line 107, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+header {
+  background-color: #004878;
+}
+
+/* line 111, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.nav-links {
+  padding: 10px 0;
+}
+/* line 114, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.nav-links a {
+  padding-right: 10px;
+}
+/* line 117, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.nav-links a:last-child {
+  padding-right: 0;
+}
+
+/* line 123, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.home-link {
+  color: #fded8f;
+}
+
+/* line 127, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+body {
+  color: #555555;
+  font-family: Helvetica, sans-serif;
+  margin: 0;
+  margin-bottom: 50px;
+  background-color: #005b96;
+}
+
+/* line 135, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.content {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media screen and (max-width: 1020px) {
+  /* line 135, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+  .content {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+/* line 146, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.benched {
+  background-color: #d2d4dc;
+}
+
+/* line 150, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.circle {
+  border-radius: 50%;
+}
+
+/* line 154, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.player {
+  padding-bottom: 10px;
+}
+/* line 157, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.player * {
+  vertical-align: middle;
+}
+/* line 161, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.player img {
+  margin-right: 10px;
+}
+
+/* line 166, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+ul {
+  list-style-type: none;
+}
+
+/* line 170, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.team-header {
+  background-color: #24a318;
+  color: white;
+  padding: 10px;
+  border-radius: 5px 5px 0 0;
+}
+
+/* line 177, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.team {
+  background-color: white;
+  padding: 0;
+  margin-top: 0;
+  border-radius: 0 0 5px 5px;
+}
+/* line 183, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.team li {
+  padding: 10px;
+  border-bottom: 1px #afafaf solid;
+}
+/* line 187, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.team li.ally {
+  background-color: #cce5ff;
+}
+/* line 191, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.team li.opponent {
+  background-color: #fec2c2;
+}
+/* line 195, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.team li:last-child {
+  border: 0;
+  border-radius: 0 0 5px 5px;
+}
+
+/* line 202, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+form, .box {
+  padding: 10px;
+  background-color: white;
+  border-radius: 5px;
+}
+/* line 207, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+form > p, .box > p {
+  margin-top: 0;
+  word-wrap: break-word;
+}
+
+/* line 213, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.button {
+  color: white;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  display: inline-block;
+}
+
+/* line 222, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.primary-button {
+  background-color: #fe5757;
+  padding: 10px;
+}
+/* line 225, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.primary-button:hover {
+  background-color: #cb2424;
+}
+
+/* line 230, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.secondary-button {
+  background-color: #00aedb;
+  padding: 10px;
+}
+/* line 233, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.secondary-button:hover {
+  background-color: #008baf;
+}
+
+/* line 238, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.inline-button {
+  margin-left: 10px;
+}
+
+/* line 242, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.disabled-button {
+  background-color: #a8a9b0;
+  padding: 10px;
+  cursor: not-allowed;
+}
+
+@media screen and (max-width: 480px) {
+  /* line 248, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+  .mobile-full-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* line 255, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.large-icon {
+  height: 75px;
+  width: 75px;
+  background-color: gray;
+}
+
+/* line 261, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.small-icon {
+  height: 45px;
+  width: 45px;
+  background-color: gray;
+}
+
+/* line 267, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.team-name-header {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  text-align: center;
+}
+/* line 272, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.team-name-header h1 {
+  margin: 0;
+}
+/* line 276, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.team-name-header .button {
+  margin-top: 10px;
+}
+@media screen and (max-width: 480px) {
+  /* line 267, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+  .team-name-header {
+    text-align: left;
+  }
+  /* line 283, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+  .team-name-header h1 {
+    font-size: 25px;
+  }
+  /* line 287, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+  .team-name-header div, .team-name-header img {
+    vertical-align: middle;
+    display: inline-block;
+  }
+  /* line 293, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+  .team-name-header img {
+    height: 65px;
+    width: 65px;
+  }
+  /* line 298, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+  .team-name-header div {
+    padding-left: 5px;
+  }
+  /* line 302, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+  .team-name-header .button {
+    margin-top: 5px;
+  }
+}
+
+/* line 308, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.header-link {
+  padding-left: 5px;
+  color: #eedc93;
+}
+
+/* line 313, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.matchup-team {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+}
+/* line 89, /Users/tiffanyhuang/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/neat-1.7.2/app/assets/stylesheets/grid/_span-columns.scss */
+.matchup-team:last-child {
+  margin-right: 0;
+}
+@media screen and (max-width: 768px) {
+  /* line 316, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+  .matchup-team .header-link {
+    display: block;
+    padding-left: 0;
+  }
+}
+
+/* line 324, /Users/tiffanyhuang/yahoo_fantasy_app/app/assets/stylesheets/application.scss */
+.selected-position {
+  display: inline-block;
+  color: #00aedb;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  width: 40px;
+  border: 1px solid #00aedb;
+  border-radius: 5px;
+  margin-right: 2px;
+}

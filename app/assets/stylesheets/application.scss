@@ -19,6 +19,14 @@ $medium: new-breakpoint(max-width 1020px 8);
 $tablet: new-breakpoint(max-width 768px 8);
 $mobile: new-breakpoint(max-width 480px 4);
 
+.margin-bottom {
+  margin-bottom: 10px;
+}
+
+.margin-bottom-large {
+  margin-bottom: 20px;
+}
+
 .warning {
   color: #d83636;
 }
@@ -57,6 +65,17 @@ input[type="text"] {
   border-radius: 5px;
   border: 1px #eb8c00 solid;
   padding: 10px;
+
+  @include media($mobile) {
+    width: 100%;
+  }
+}
+
+select {
+  font-size: 15px;
+  border: 0;
+  height: 35px;
+  background-color: #d2d4dc;
 
   @include media($mobile) {
     width: 100%;
@@ -180,7 +199,7 @@ ul {
 }
 
 form, .box {
-  padding: 20px;
+  padding: 10px;
   background-color: white;
   border-radius: 5px;
 

@@ -1,7 +1,7 @@
 <h1>FantasyToSee</h1>
 
 <% if @my_teams.any? %>
-  <section>
+  <section class="margin-bottom-large">
     <div class="team-header">
       My Teams
     </div>
@@ -14,11 +14,20 @@
           <% end %>
         </li>
       <% end %>
+      <li>
+        <%= link_to new_team_path, class: 'button secondary-button mobile-full-button' do %>
+          <i class="fa fa-cloud-download"></i> Import another team
+        <% end %>
+      </li>
     </ul>
   </section>
+
   <section>
-    <%= link_to new_team_path, class: 'button secondary-button mobile-full-button' do %>
-      <i class="fa fa-cloud-download"></i> Import another team
+    <%= form_tag(time_zones_path, method: :post) do %>
+      <%= select_tag :time_zone, time_zone_options_for_select((cookies[:time_zone] || 'Eastern Time (US & Canada)'), ActiveSupport::TimeZone.us_zones), class: 'margin-bottom' %>
+      <div>
+        <%= submit_tag 'Set Time Zone', class: 'button primary-button mobile-full-button' %>
+      </div>
     <% end %>
   </section>
 <% else %>

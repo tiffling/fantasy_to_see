@@ -18,7 +18,7 @@ class TeamsController < ApplicationController
   def show
     team = Team.find(params[:id])
     @team_presenter = TeamPresenter.new(team)
-    filter = MatchupFilter.new(@team_presenter.week, @team_presenter.teams)
+    filter = MatchupFilter.new(@team_presenter.week, @team_presenter.teams, cookies[:time_zone])
     @matchup_presenters = filter.matchup_presenters
     @matchup_player_filter = MatchupPlayerFilter.new(@team_presenter.players)
   end
@@ -45,7 +45,7 @@ class TeamsController < ApplicationController
 
     @opposing_team_presenter = TeamPresenter.new(opposing_team)
 
-    filter = MatchupFilter.new(@team_presenter.week, @team_presenter.teams + @opposing_team_presenter.teams)
+    filter = MatchupFilter.new(@team_presenter.week, @team_presenter.teams + @opposing_team_presenter.teams, cookies[:time_zone])
     @matchup_presenters = filter.matchup_presenters
     @matchup_player_filter = MatchupPlayerFilter.new(@team_presenter.players + @opposing_team_presenter.players)
   end

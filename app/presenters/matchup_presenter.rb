@@ -1,6 +1,7 @@
 class MatchupPresenter
-  def initialize(hsh)
+  def initialize(hsh, time_zone)
     @hsh = hsh
+    @time_zone = time_zone
   end
 
   def header
@@ -10,8 +11,8 @@ class MatchupPresenter
   def kickoff
     DateTime.
       strptime(hsh['kickoff'],'%s').
-      in_time_zone('Eastern Time (US & Canada)').
-      strftime('%m/%d %a %l:%M %P')
+      in_time_zone(time_zone).
+      strftime('%m/%d %a %l:%M %P %Z')
   end
 
   def team_names
@@ -22,7 +23,7 @@ class MatchupPresenter
 
   private
 
-  attr_reader :hsh
+  attr_reader :hsh, :time_zone
 
   def teams
     hsh['team']
