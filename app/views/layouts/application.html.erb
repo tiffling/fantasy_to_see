@@ -22,5 +22,9 @@
   <div class="content">
     <%= yield %>
   </div>
+
+  <footer>
+    &copy; <%= Time.now.year %> Tiffany Huang | <%= link_to 'GitHub', 'https://github.com/tiffling', target: '_blank' %> | <%= link_to 'LinkedIn', 'https://www.linkedin.com/in/tiffanylinghuang', target: '_blank' %>
+  </footer>
 </body>
 </html>
