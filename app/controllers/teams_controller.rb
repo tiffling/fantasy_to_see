@@ -55,7 +55,7 @@ class TeamsController < ApplicationController
     matchup_finder = MatchupFinder.new(team)
 
     if store_team(team.url) && store_team(matchup_finder.opposing_team.url)
-      flash[:success] = 'Updated'
+      flash[:success] = 'Refreshed!'
       redirect_to matchup_team_path(team)
     else
       flash[:notice] = 'Please authorize your account'
@@ -66,17 +66,22 @@ class TeamsController < ApplicationController
   def update
     team = Team.find(params[:id])
     store_team(team.url)
+    flash[:success] = 'Refreshed!'
     redirect_to team_path(team)
   end
 
   private
 
-  helper_method :authorized?
-
   def must_be_authorized
     unless authorized?
       flash[:notice] = 'Please authorize your account'
-      redirect_to new_authorization_path
+      if action_name == 'update'
+        redirect_to new_authorization_path(team_id: params[:id])
+      elsif action_name == 'update_matchup'
+        redirect_to new_authorization_path(team_id: params[:id], matchup: true)
+      else
+        redirect_to new_authorization_path
+      end
     end
   end
 end

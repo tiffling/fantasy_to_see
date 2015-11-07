@@ -1,12 +1,6 @@
 <h2 class="inline-block">Week <%= @team_presenter.week %> Matchup</h2>
-<% if authorized? %>
-  <%= link_to update_matchup_team_path(@team_presenter.team), method: :put, class: 'button secondary-button inline-button' do %>
-    <i class="fa fa-refresh"></i> Refresh
-  <% end %>
-<% else %>
-  <%= link_to new_authorization_path(team_id: @team_presenter.team, matchup: true), class: 'button secondary-button inline-button' do %>
-    <i class="fa fa-refresh"></i> Refresh
-  <% end %>
+<%= link_to update_matchup_team_path(@team_presenter.team), method: :put, class: 'button secondary-button inline-button' do %>
+  <i class="fa fa-refresh"></i> Refresh
 <% end %>
 <section class="container">
   <section class="matchup-team">
