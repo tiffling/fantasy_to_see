@@ -2,6 +2,8 @@
 
 <div class="input-form">
   <%= form_tag(authorizations_path, method: :post) do %>
+    <%= hidden_field_tag :team_id, params[:team_id] %>
+    <%= hidden_field_tag :matchup, params[:matchup] %>
     <p>
       Yahoo requires that you authorize access to your Yahoo Fantasy team. Please click on the link below and follow the instructions to retrieve your code. Copy and paste the code onto the form below and submit.
     </p>

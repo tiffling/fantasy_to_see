@@ -71,22 +71,12 @@ class TeamsController < ApplicationController
 
   private
 
-  def store_team(url)
-    begin
-      team_key = YahooToken.team_key_from_url(url)
-      Team.create_or_update_from_api(token, team_key)
-    rescue
-      false
-    end
-  end
+  helper_method :authorized?
 
   def must_be_authorized
-    unless token.valid?
+    unless authorized?
+      flash[:notice] = 'Please authorize your account'
       redirect_to new_authorization_path
     end
-  end
-
-  def token
-    @token ||= YahooToken.fetch(cookies[:token], cookies[:secret], cookies[:verifer])
   end
 end

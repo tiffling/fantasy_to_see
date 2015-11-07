@@ -18,7 +18,14 @@
     <%= link_to 'Matchup View', matchup_team_path(@team_presenter.team), class: 'button secondary-button' %>
   </div>
 </div>
-<div class="team-header"><i class="fa fa-flag"></i> My Team <%= link_to team_path(@team_presenter.team), method: :put, class: 'header-link' do %>Refresh <i class="fa fa-refresh"></i><% end %></div>
+<div class="team-header">
+  <i class="fa fa-flag"></i> My Team
+  <% if authorized? %>
+    <%= link_to team_path(@team_presenter.team), method: :put, class: 'header-link' do %>Refresh <i class="fa fa-refresh"></i><% end %>
+  <% else %>
+    <%= link_to new_authorization_path(team_id: @team_presenter.team), class: 'header-link' do %>Refresh <i class="fa fa-refresh"></i><% end %>
+  <% end %>
+</div>
 <ul class="team">
   <% @team_presenter.players.each do |player| %>
     <li class="<%= player.benched? ? 'benched' : '' %>">

@@ -17,13 +17,28 @@ class AuthorizationsController < ApplicationController
   def create
     @token = YahooToken.fetch(cookies[:token], cookies[:secret], params[:verifier])
     if token.valid?
-      cookies[:verifer] = {
+      cookies[:verifier] = {
         value: params[:verifier],
         expires: 1.hour.from_now
       }
 
-      flash[:success] = 'Authorized!'
-      redirect_to new_team_path
+      if params[:team_id]
+        team = Team.find(params[:team_id])
+        store_team(team.url)
+
+        if params[:matchup] == true
+          matchup_finder = MatchupFinder.new(team)
+          store_team(matchup_finder.opposing_team.url)
+          flash[:success] = 'Refreshed!'
+          redirect_to matchup_team_path(team)
+        else
+          flash[:success] = 'Refreshed!'
+          redirect_to team_path(team)
+        end
+      else
+        flash[:success] = 'Authorized!'
+        redirect_to new_team_path
+      end
     else
       flash[:error] = 'Invalid code'
       redirect_to new_authorization_path
@@ -33,12 +48,8 @@ class AuthorizationsController < ApplicationController
   private
 
   def only_unauthorized
-    if token.valid?
+    if authorized?
       redirect_to new_team_path
     end
-  end
-
-  def token
-    @token ||= YahooToken.fetch(cookies[:token], cookies[:secret], cookies[:verifier])
   end
 end
