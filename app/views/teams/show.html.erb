@@ -29,7 +29,7 @@
 <ul class="team">
   <% @team_presenter.players.each do |player| %>
     <li class="<%= player.benched? ? 'benched' : '' %>">
-      <%= player.shortened_name %> <%= player.position %>-<%= player.team %>
+      <span class='selected-position'><%= player.selected_position %></span> <%= player.full_name %> <%= player.position %>-<%= player.team %>
     </li>
   <% end %>
 </ul>

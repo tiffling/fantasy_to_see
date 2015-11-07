@@ -26,6 +26,10 @@ class PlayerPresenter
     hsh['display_position']
   end
 
+  def selected_position
+    hsh['selected_position']['position']
+  end
+
   def image
     hsh['headshot']['url']
   end
