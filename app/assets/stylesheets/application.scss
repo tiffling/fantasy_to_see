@@ -69,6 +69,7 @@ input[type="text"] {
 }
 
 select {
+  -webkit-appearance: none;
   font-size: 15px;
   border: 0;
   height: 35px;
