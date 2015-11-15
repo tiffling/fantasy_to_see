@@ -29,7 +29,7 @@
 <% @matchup_presenters.each do |matchup| %>
   <section class="matchup">
     <div class="team-header">
-      <i class="fa fa-television"></i> <%= matchup.header %> @ <%= matchup.kickoff %> EST
+      <i class="fa fa-television"></i> <%= matchup.header %> @ <%= matchup.kickoff %>
     </div>
     <ul class="team">
       <% @matchup_player_filter.matchup_players(matchup.team_names).each do |player| %>
