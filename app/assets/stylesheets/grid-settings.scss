@@ -1,0 +1,6 @@
+@import "bourbon";
+@import "neat-helpers";
+
+$medium: new-breakpoint(max-width 1020px);
+$tablet: new-breakpoint(max-width 768px);
+$mobile: new-breakpoint(max-width 480px);

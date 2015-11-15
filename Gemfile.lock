@@ -151,6 +151,7 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
+  bourbon
   jbuilder (~> 1.2)
   jquery-rails
   neat

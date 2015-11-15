@@ -25,6 +25,7 @@ end
 gem 'oauth'
 gem 'pg'
 gem 'neat'
+gem 'bourbon'
 gem 'jquery-rails'
 
 group :development do
