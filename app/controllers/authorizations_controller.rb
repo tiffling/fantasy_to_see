@@ -22,7 +22,7 @@ class AuthorizationsController < ApplicationController
         expires: 1.hour.from_now
       }
 
-      if params[:team_id]
+      if params[:team_id].present?
         team = Team.find(params[:team_id])
         store_team(team.url)
 
