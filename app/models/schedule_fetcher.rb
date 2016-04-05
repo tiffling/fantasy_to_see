@@ -4,7 +4,7 @@ class ScheduleFetcher
   end
 
   def matchups
-    url = "http://football.myfantasyleague.com/#{Time.now.year}/export?TYPE=nflSchedule&W=#{week}"
+    url = "http://www03.myfantasyleague.com/#{Time.now.year}/export?TYPE=nflSchedule&W=#{week}"
     xml = Net::HTTP.get_response(URI.parse(url)).body
     Hash.from_xml(xml)['nflSchedule']['matchup']
   end
