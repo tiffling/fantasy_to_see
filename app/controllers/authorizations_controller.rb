@@ -30,7 +30,7 @@ class AuthorizationsController < ApplicationController
           matchup_finder = MatchupFinder.new(team)
           store_team(matchup_finder.opposing_team.url)
           flash[:success] = 'Refreshed!'
-          redirect_to matchup_team_path(team)
+          redirect_to team_matchup_index_path(team)
         else
           flash[:success] = 'Refreshed!'
           redirect_to team_path(team)

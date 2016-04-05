@@ -1,5 +1,5 @@
 <h2 class="inline-block">Week <%= @team_presenter.week %> Matchup</h2>
-<%= link_to update_matchup_team_path(@team_presenter.team), method: :put, class: 'button secondary-button inline-button' do %>
+<%= link_to "/teams/#{@team_presenter.team.id}/matchup", method: :post, class: 'button secondary-button inline-button' do %>
   <i class="fa fa-refresh"></i> Refresh
 <% end %>
 <section class="container">

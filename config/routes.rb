@@ -1,7 +1,6 @@
 YahooFantasyApp::Application.routes.draw do
   resources :teams, only: [:new, :show, :create, :update] do
-    get :matchup, on: :member
-    put :update_matchup, on: :member
+    resources :matchup, only: [:index, :create]
   end
   resources :authorizations, only: [:new, :create]
 
