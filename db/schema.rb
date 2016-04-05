@@ -17,18 +17,18 @@ ActiveRecord::Schema.define(version: 20151020002610) do
   enable_extension "plpgsql"
   enable_extension "hstore"
 
-  create_table "leagues", force: true do |t|
-    t.string   "league_key"
-    t.string   "name"
+  create_table "leagues", force: :cascade do |t|
+    t.string   "league_key", limit: 255
+    t.string   "name",       limit: 255
     t.json     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "teams", force: true do |t|
-    t.string   "team_key",   null: false
-    t.string   "name",       null: false
-    t.string   "url",        null: false
+  create_table "teams", force: :cascade do |t|
+    t.string   "team_key",   limit: 255, null: false
+    t.string   "name",       limit: 255, null: false
+    t.string   "url",        limit: 255, null: false
     t.json     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
