@@ -16,6 +16,8 @@
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+require 'webmock/rspec'
+
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
@@ -43,6 +45,10 @@ RSpec.configure do |config|
   config.default_formatter = 'doc'
 
   config.include FactoryGirl::Syntax::Methods
+
+  config.before(:each) do
+    stub_request(:get, /myfantasyleague.com/)
+  end
 
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.

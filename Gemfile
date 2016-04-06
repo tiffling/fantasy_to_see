@@ -43,6 +43,7 @@ group :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'timecop'
+  gem 'webmock'
 end
 
 group :test, :development do
