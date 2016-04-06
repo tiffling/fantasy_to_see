@@ -29,7 +29,6 @@ gem 'bourbon'
 gem 'jquery-rails'
 
 group :development do
-  gem 'pry'
   gem 'awesome_print'
 end
 
@@ -42,4 +41,8 @@ group :test do
   gem 'factory_girl_rails'
   gem 'rspec'
   gem 'rspec-rails'
+end
+
+group :test, :development do
+  gem 'pry'
 end
