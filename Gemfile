@@ -41,6 +41,7 @@ group :test do
   gem 'factory_girl_rails'
   gem 'rspec'
   gem 'rspec-rails'
+  gem 'timecop'
 end
 
 group :test, :development do
