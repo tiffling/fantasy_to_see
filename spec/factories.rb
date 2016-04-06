@@ -10,6 +10,35 @@ FactoryGirl.define do
     sequence(:name){ |n| "My Team #{n}" }
     sequence(:url){ |n| "http://foo.com/f1/1/#{n}" }
     league
-    data "{}"
+    data do
+      {
+        'team_logos' => {
+          'team_logo' => {
+            'url' => 'foobar.com'
+          }
+        },
+        'roster' => {
+          'week' => '1',
+          'players' => {
+            'player' => [
+              'name' => {
+                'full' => 'Matthew Stafford',
+                'first' => 'Matthew',
+                'last' => 'Stafford'
+              },
+              'editorial_team_abbr' => 'Det',
+              'uniform_number' => '9',
+              'selected_position' => {
+                'position' => 'DEF'
+              },
+              'headshot' => {
+                'url' => 'foo.png',
+                'size' => 'small'
+              }
+            ]
+          }
+        }
+      }
+    end
   end
 end

@@ -39,6 +39,7 @@ end
 group :test do
   gem 'capybara'
   gem 'factory_girl_rails'
+  gem 'launchy'
   gem 'rspec'
   gem 'rspec-rails'
   gem 'timecop'
