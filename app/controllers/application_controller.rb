@@ -11,9 +11,8 @@ class ApplicationController < ActionController::Base
     @token ||= YahooToken.fetch(cookies[:token], cookies[:secret], cookies[:verifier])
   end
 
-  def store_team(url)
+  def store_team(team_key)
     begin
-      team_key = YahooToken.team_key_from_url(url)
       Team.create_or_update_from_api(token, team_key)
     rescue
       false

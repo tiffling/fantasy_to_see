@@ -24,11 +24,11 @@ class AuthorizationsController < ApplicationController
 
       if params[:team_id].present?
         team = Team.find(params[:team_id])
-        store_team(team.url)
+        store_team(team.team_key)
 
         if params[:matchup] == true
           matchup_finder = MatchupFinder.new(team)
-          store_team(matchup_finder.opposing_team.url)
+          store_team(matchup_finder.opposing_team.team_key)
           flash[:success] = 'Refreshed!'
           redirect_to team_matchup_index_path(team)
         else

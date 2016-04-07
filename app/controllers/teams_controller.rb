@@ -5,7 +5,8 @@ class TeamsController < ApplicationController
   end
 
   def create
-    team = store_team(params[:roster_url])
+    team_key = YahooToken.team_key_from_url(params[:roster_url])
+    team = store_team(team_key)
     if team
       cookies[:my_team_ids] = (cookies[:my_team_ids].to_s.split(', ') + [team.id]).uniq.join(', ')
       redirect_to team_path(team)
@@ -25,7 +26,7 @@ class TeamsController < ApplicationController
 
   def update
     team = Team.find(params[:id])
-    store_team(team.url)
+    store_team(team.team_key)
     flash[:success] = 'Refreshed!'
     redirect_to team_path(team)
   end

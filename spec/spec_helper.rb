@@ -48,6 +48,7 @@ RSpec.configure do |config|
 
   config.before(:each) do
     stub_request(:get, /myfantasyleague.com/)
+    stub_request(:get, /api.login.yahoo.com/)
   end
 
 # The settings below are suggested to provide a good initial experience

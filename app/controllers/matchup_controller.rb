@@ -30,7 +30,7 @@ class MatchupController < ApplicationController
     team = Team.find(params[:team_id])
     matchup_finder = MatchupFinder.new(team)
 
-    if store_team(team.url) && store_team(matchup_finder.opposing_team.url)
+    if store_team(team.team_key) && store_team(matchup_finder.opposing_team.team_key)
       flash[:success] = 'Refreshed!'
       redirect_to team_matchup_index_path(team)
     else
