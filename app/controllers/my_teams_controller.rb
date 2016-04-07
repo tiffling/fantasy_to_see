@@ -3,7 +3,11 @@ class MyTeamsController < ApplicationController
     team = Team.find(params[:id])
     cookies[:my_team_ids] = (cookies[:my_team_ids].to_s.split(', ') + [team.id]).uniq.join(', ')
     flash[:success] = 'Saved!'
-    redirect_to dashboard_index_path
+    begin
+      redirect_to :back
+    rescue ActionController::RedirectBackError
+      redirect_to dashboard_index_path
+    end
   end
 
   def destroy
@@ -12,6 +16,7 @@ class MyTeamsController < ApplicationController
     team_ids.delete(team.id.to_s)
     cookies[:my_team_ids] = team_ids.join(', ')
     flash[:success] = 'Removed!'
-    redirect_to :back
+
+    redirect_to dashboard_index_path
   end
 end

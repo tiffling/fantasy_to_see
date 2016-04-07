@@ -14,6 +14,5 @@ describe 'Team Page' do
   it 'allows user to save the coach' do
     click_link 'Save'
     expect(page).to have_content 'Saved!'
-    expect(page).to have_content 'My Teams'
   end
 end
