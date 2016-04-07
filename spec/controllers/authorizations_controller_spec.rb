@@ -1,8 +1,7 @@
 require 'spec_helper'
 
 describe AuthorizationsController do
-  let!(:valid_token){ double(valid?: true) }
-  let!(:invalid_token){ double(token: 'foobar', secret: 'shhhh', valid?: false, authorize_url: 'foo.com') }
+  include YahooTokenHelper
 
   describe '#new' do
     it 'sets token and secret based on generated yahoo token if not authorized' do

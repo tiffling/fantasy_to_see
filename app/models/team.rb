@@ -25,10 +25,6 @@ class Team < ActiveRecord::Base
     response = token.query_league(league_key)
     data = response['query']['results']['league']
 
-    unless data
-      raise 'Need to revalidate token'
-    end
-
     league = League.where(league_key: league_key).first || League.new
     if league.new_record?
       league.league_key = data['league_key']

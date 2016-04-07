@@ -2,7 +2,15 @@ FactoryGirl.define do
   factory :league do
     sequence(:league_key){ |n| "league_key_#{n}" }
     sequence(:name){ |n| "League #{n}" }
-    data "{}"
+    data do
+      {
+        'scoreboard' => {
+          'matchups' => {
+            'matchup' => []
+          }
+        }
+      }
+    end
   end
 
   factory :team do
