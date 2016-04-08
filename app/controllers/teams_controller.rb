@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_filter :must_be_authorized, only: [:new, :create, :update, :update_matchup]
+  before_filter :must_be_authorized, only: [:new, :create, :update]
 
   def new
   end
@@ -38,8 +38,6 @@ class TeamsController < ApplicationController
       flash[:notice] = 'Please authorize your account'
       if action_name == 'update'
         redirect_to new_authorization_path(team_id: params[:id])
-      elsif action_name == 'update_matchup'
-        redirect_to new_authorization_path(team_id: params[:id], matchup: true)
       else
         redirect_to new_authorization_path
       end

@@ -1,4 +1,6 @@
 class MatchupController < ApplicationController
+  before_filter :must_be_authorized, only: [:create]
+
   def index
     team = Team.find(params[:team_id])
     @team_presenter = TeamPresenter.new(team)
@@ -15,7 +17,7 @@ class MatchupController < ApplicationController
       end
     rescue
       flash[:notice] = 'Please authorize your account'
-      redirect_to new_authorization_path
+      redirect_to new_authorization_path(team_id: params[:team_id], matchup: true)
       return
     end
 
@@ -35,7 +37,16 @@ class MatchupController < ApplicationController
       redirect_to team_matchup_index_path(team)
     else
       flash[:notice] = 'Please authorize your account'
-      redirect_to new_authorization_path
+      redirect_to new_authorization_path(team_id: params[:team_id], matchup: true)
+    end
+  end
+
+  private
+
+  def must_be_authorized
+    unless authorized?
+      flash[:notice] = 'Please authorize your account'
+      redirect_to new_authorization_path(team_id: params[:team_id], matchup: true)
     end
   end
 end

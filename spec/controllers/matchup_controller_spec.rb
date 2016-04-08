@@ -25,7 +25,7 @@ describe MatchupController do
     it 'redirects to authorization page if no matchup is found in db and token is invalid' do
       allow(YahooToken).to receive(:fetch).and_return(invalid_token)
       get :index, team_id: team.id
-      expect(response).to redirect_to new_authorization_path
+      expect(response).to redirect_to new_authorization_path(team_id: team.id, matchup: true)
     end
   end
 
@@ -43,12 +43,18 @@ describe MatchupController do
     end
 
     it 'if team refresh fails, redirect back to authorization path' do
-      allow(YahooToken).to receive(:fetch).and_return(invalid_token)
+      allow(YahooToken).to receive(:fetch).and_return(valid_token)
       allow(Team).to receive(:create_or_update_from_api).and_raise(OAuth::Problem, 'boom')
 
       post :create, team_id: team.id
 
-      expect(response).to redirect_to new_authorization_path
+      expect(response).to redirect_to new_authorization_path(team_id: team.id, matchup: true)
+    end
+
+    it 'redirects to authorization page if invalid token' do
+      allow(YahooToken).to receive(:fetch).and_return(invalid_token)
+      post :create, team_id: team.id
+      expect(response).to redirect_to new_authorization_path(team_id: team.id, matchup: true)
     end
   end
 end
