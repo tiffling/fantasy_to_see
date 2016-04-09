@@ -48,7 +48,7 @@ class YahooToken < OAuth::ConsumerToken
 
   def valid?
     begin
-      @access_token ||= request_token.get_access_token(oauth_verifier: verifier)
+      access_token
       true
     rescue OAuth::Problem
       false
@@ -56,7 +56,6 @@ class YahooToken < OAuth::ConsumerToken
   end
 
   def query_team(team_key)
-    @access_token ||= request_token.get_access_token(oauth_verifier: verifier)
     api_url = "https://query.yahooapis.com/v1/yql?q=select%20*%20from%20fantasysports.teams.roster%20where%20team_key%3D'#{team_key}'%20&format=json"
     response = access_token.get(api_url)
     JSON.parse(response.body)
@@ -70,5 +69,9 @@ class YahooToken < OAuth::ConsumerToken
 
   private
 
-  attr_reader :request_token, :access_token, :verifier
+  attr_reader :request_token, :verifier
+
+  def access_token
+    @access_token ||= request_token.get_access_token(oauth_verifier: verifier)
+  end
 end
