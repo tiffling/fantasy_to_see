@@ -32,13 +32,10 @@ class MatchupController < ApplicationController
     team = Team.find(params[:team_id])
     matchup_finder = MatchupFinder.new(team)
 
-    if store_team(team.team_key) && store_team(matchup_finder.opposing_team.team_key)
-      flash[:success] = 'Refreshed!'
-      redirect_to team_matchup_index_path(team)
-    else
-      flash[:notice] = 'Please authorize your account'
-      redirect_to new_authorization_path(team_id: params[:team_id], matchup: true)
-    end
+    store_team(team.team_key)
+    store_team(matchup_finder.opposing_team.team_key)
+    flash[:success] = 'Refreshed!'
+    redirect_to team_matchup_index_path(team)
   end
 
   private

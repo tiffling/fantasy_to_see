@@ -14,12 +14,12 @@ describe TeamsController do
       expect(response).to redirect_to team_path(fake_team)
     end
 
-    it 'redirects to authorization page if team could not be refreshed' do
+    it 'renders error if invalid url is given' do
       allow(YahooToken).to receive(:fetch).and_return(valid_token)
-      allow(Team).to receive(:create_or_update_from_api).and_raise(OAuth::Problem, 'ruh roh')
-      post :create, roster_url: 'football.fantasysports.yahoo.com/f1/791261/2'
-      expect(Team).to have_received(:create_or_update_from_api).with(valid_token, 'nfl.l.791261.t.2')
-      expect(response).to redirect_to new_authorization_path
+      allow(Team).to receive(:create_or_update_from_api).and_return(nil)
+      post :create, roster_url: 'moooo'
+      expect(flash[:error]).to eq 'Invalid roster URL'
+      expect(response).to render_template(:new)
     end
 
     it 'redirects to authorization page if invalid token' do

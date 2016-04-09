@@ -3,6 +3,7 @@ class Team < ActiveRecord::Base
 
   def self.create_or_update_from_api(token, team_key)
     response = token.query_team(team_key)
+    return nil unless response['query']['results']
     data = response['query']['results']['team']
 
     team = Team.where(team_key: data['team_key']).first || Team.new(team_key: data['team_key'])

@@ -12,10 +12,6 @@ class ApplicationController < ActionController::Base
   end
 
   def store_team(team_key)
-    begin
-      Team.create_or_update_from_api(token, team_key)
-    rescue OAuth::Problem
-      false
-    end
+    Team.create_or_update_from_api(token, team_key)
   end
 end

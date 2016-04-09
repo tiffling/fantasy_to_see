@@ -11,8 +11,8 @@ class TeamsController < ApplicationController
       cookies[:my_team_ids] = (cookies[:my_team_ids].to_s.split(', ') + [team.id]).uniq.join(', ')
       redirect_to team_path(team)
     else
-      flash[:notice] = 'Please authorize your account'
-      redirect_to new_authorization_path
+      flash.now[:error] = 'Invalid roster URL'
+      render :new
     end
   end
 

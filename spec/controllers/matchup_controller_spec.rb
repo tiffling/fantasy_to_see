@@ -42,15 +42,6 @@ describe MatchupController do
       expect(Team).to have_received(:create_or_update_from_api).with(valid_token, opposing_team.team_key)
     end
 
-    it 'if team refresh fails, redirect back to authorization path' do
-      allow(YahooToken).to receive(:fetch).and_return(valid_token)
-      allow(Team).to receive(:create_or_update_from_api).and_raise(OAuth::Problem, 'boom')
-
-      post :create, team_id: team.id
-
-      expect(response).to redirect_to new_authorization_path(team_id: team.id, matchup: true)
-    end
-
     it 'redirects to authorization page if invalid token' do
       allow(YahooToken).to receive(:fetch).and_return(invalid_token)
       post :create, team_id: team.id
