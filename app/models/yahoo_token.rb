@@ -1,7 +1,4 @@
 class YahooToken < OAuth::ConsumerToken
-  CLIENT_KEY = 'dj0yJmk9TUNIYnJlQ0ZnWlFNJmQ9WVdrOVJUQTRRV3h2TjJrbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD1jMg--'
-  SECRET_KEY = '787cf2a7e99ec070a4e250d5cf92ab35dad12d75'
-
   def initialize(request_token, verifier = '')
     @request_token = request_token
     @verifier = verifier
@@ -17,7 +14,7 @@ class YahooToken < OAuth::ConsumerToken
   end
 
   def self.consumer
-    OAuth::Consumer.new(YahooToken::CLIENT_KEY, YahooToken::SECRET_KEY,
+    OAuth::Consumer.new(ENV['YAHOO_CLIENT_KEY'], ENV['YAHOO_SECRET_KEY'],
     {
        :site                 => 'https://api.login.yahoo.com',
        :scheme               => :query_string,
