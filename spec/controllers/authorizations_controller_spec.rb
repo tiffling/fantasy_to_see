@@ -51,7 +51,7 @@ describe AuthorizationsController do
       allow(Team).to receive(:create_or_update_from_api)
       allow(MatchupFinder).to receive(:new).and_return(double(opposing_team: opposing_team))
 
-      post :create, verifier: 'beepboop', team_id: team.id, matchup: true
+      post :create, verifier: 'beepboop', team_id: team.id, matchup: 'true'
 
       expect(Team).to have_received(:create_or_update_from_api).with(valid_token, team.team_key)
       expect(Team).to have_received(:create_or_update_from_api).with(valid_token, opposing_team.team_key)
