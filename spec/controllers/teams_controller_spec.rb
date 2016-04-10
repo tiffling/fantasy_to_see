@@ -9,7 +9,7 @@ describe TeamsController do
       fake_team = double(id: 2)
       allow(Team).to receive(:create_or_update_from_api).and_return(fake_team)
       post :create, roster_url: 'football.fantasysports.yahoo.com/f1/791261/2'
-      expect(Team).to have_received(:create_or_update_from_api).with(valid_token, 'nfl.l.791261.t.2')
+      expect(Team).to have_received(:create_or_update_from_api).with(valid_token, '348.l.791261.t.2')
       expect(cookies[:my_team_ids]).to eq '2'
       expect(response).to redirect_to team_path(fake_team)
     end

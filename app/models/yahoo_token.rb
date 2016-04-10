@@ -28,7 +28,7 @@ class YahooToken < OAuth::ConsumerToken
 
   def self.team_key_from_url(url)
     keys = url.scan(/\/(\d+)/).flatten
-    "nfl.l.#{keys[0]}.t.#{keys[1]}"
+    "348.l.#{keys[0]}.t.#{keys[1]}"
   end
 
   def authorize_url
