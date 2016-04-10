@@ -42,6 +42,8 @@ describe 'Matchup Page' do
     allow(YahooToken).to receive(:fetch).and_return(valid_token)
     allow(Team).to receive(:create_or_update_from_api)
     click_link 'Refresh'
+    expect(Team).to have_received(:create_or_update_from_api).with(valid_token, team.team_key)
+    expect(Team).to have_received(:create_or_update_from_api).with(valid_token, opposing_team.team_key)
     expect(page).to have_content('Refreshed!')
   end
 
@@ -54,6 +56,8 @@ describe 'Matchup Page' do
     click_link 'Refresh'
     fill_in 'verifier', with: 'valid code'
     click_button 'Authorize'
+    expect(Team).to have_received(:create_or_update_from_api).with(valid_token, team.team_key)
+    expect(Team).to have_received(:create_or_update_from_api).with(valid_token, opposing_team.team_key)
     expect(page).to have_content('Refreshed!')
     expect(current_path).to eq team_matchup_index_path(team)
   end
