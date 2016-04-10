@@ -1,5 +1,18 @@
-== FantasyToSee
+==FantasyToSee
 
-This is an app where you can import your yahoo fantasy team via a team url (ex: https://football.fantasysports.yahoo.com/f1/791261/2) and see what games to watch at what time and which of your starting players are in those games.
+Fantasy football is a game of blood, sweat and tears. It requires a significant time commitment and certain level of micromanagement to win the coveted title of league champion. Think of FantasyToSee as your cheatsheet come Football Sunday. Don't remember the team of the obscure sleeper you picked up off the waiver wire? <b>FantasyToSee is a responsive web app that lists out all the players on your roster + your opponent's roster and exactly what games to watch this week</b> so you don't miss out on any of the action. <em>FantasyToSee currently only supports Yahoo leagues.</em>
 
-Uses the Yahoo Fantasy Sports API for team information and the MyFantasyLeague API for schedule information.
+FantasyToSee uses the Yahoo Fantasy Sports API for team information and the MyFantasyLeague API for schedule information.
+
+Authorize your Yahoo account and import your team (ex: football.fantasysports.yahoo.com/f1/791261/2):
+http://i.imgur.com/0yJGG3o.png
+http://i.imgur.com/GudE2I6.png
+
+View your team:
+http://i.imgur.com/gcMxbaE.png
+
+View your matchup of the week:
+http://i.imgur.com/GdJvotD.png
+
+Save teams onto your dashboard + change the timezone so kickoff times coordinate with your location:
+http://i.imgur.com/C4tdrLY.png
