@@ -21,8 +21,7 @@ class YahooToken < OAuth::ConsumerToken
        :http_method          => :get,
        :request_token_path   => '/oauth/v2/get_request_token',
        :access_token_path    => '/oauth/v2/get_token',
-       :authorize_path       => '/oauth/v2/request_auth',
-       :oauth_callback       => 'http://localhost:8080'
+       :authorize_path       => '/oauth/v2/request_auth'
     })
   end
 
