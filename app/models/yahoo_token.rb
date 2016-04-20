@@ -1,4 +1,4 @@
-class YahooToken < OAuth::ConsumerToken
+class YahooToken
   def initialize(request_token, verifier = '')
     @request_token = request_token
     @verifier = verifier
