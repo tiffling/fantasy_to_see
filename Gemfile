@@ -47,6 +47,7 @@ group :test do
   gem 'timecop'
   gem 'webmock'
   gem 'selenium-webdriver'
+  gem 'database_cleaner'
 end
 
 group :test, :development do

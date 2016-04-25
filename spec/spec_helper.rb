@@ -26,8 +26,7 @@ WebMock.disable_net_connect! allow_localhost: true
 Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |file| require file }
 
 RSpec.configure do |config|
-  config.include Capybara::DSL
-  config.include Rails.application.routes.url_helpers
+  config.infer_spec_type_from_file_location!
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
@@ -58,6 +57,26 @@ RSpec.configure do |config|
   config.before(:each) do
     stub_request(:get, /myfantasyleague.com/)
     stub_request(:get, /api.login.yahoo.com/)
+  end
+
+  config.before(:suite) do
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.strategy = :transaction
+  end
+
+  config.before(:each, :js => true) do
+    DatabaseCleaner.strategy = :truncation
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
   end
 
 # The settings below are suggested to provide a good initial experience
