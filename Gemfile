@@ -30,6 +30,8 @@ gem 'jquery-rails'
 
 group :development do
   gem 'awesome_print'
+  gem 'spring'
+  gem 'spring-commands-rspec'
 end
 
 group :production do
